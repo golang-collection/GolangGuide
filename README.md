@@ -32,21 +32,6 @@
   - <a href = "">延迟defer</a>
   - <a href = "">析构</a>
   - <a href = "">缓存池</a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
 - <a href = "">常用框架</a>
   - <a href = "">rpc</a>
   - <a href = "">数据库</a>
@@ -62,15 +47,7 @@
     - <a href = "">Zap</a>
   - <a href = "">消息队列</a>
     - <a href = "">RabbitMQ</a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
 - <a href = "">项目实战</a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
 - <a href = "">数据结构与算法</a>
   - <a href = "">线性表</a>
     - <a href = "">链表</a>
@@ -104,19 +81,6 @@
     - <a href = "">动态规划</a>
     - <a href = "">回溯算法</a>
     - <a href = "">枚举算法</a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
-- <a href = ""></a>
 - <a href = "">设计模式</a>
 - <a href = "">网络</a>
   - <a href = "">http</a>
@@ -132,7 +96,6 @@
   - <a href = "">容器化</a>
   - <a href = "">微服务</a>
   - <a href = ""></a>
-- 
 
 # 推荐资源
 
