@@ -97,3 +97,13 @@
   * 容器化
   * 微服务
 
+## 推荐
+
+\[1\] [Go 学习之路：Go 开发者博客、Go 微信公众号、Go 学习资料\(文档、书籍、视频\)](https://github.com/talkgo/read)
+
+\[2\] Go 语言学习资料与社区索引：[https://github.com/unknwon/go-study-index](https://github.com/unknwon/go-study-index)
+
+\[3\] Go Developer Roadmap: [https://github.com/Alikhll/golang-developer-roadmap](https://github.com/Alikhll/golang-developer-roadmap)
+
+\[4\] GolangTraining：[https://github.com/GoesToEleven/GolangTraining](https://github.com/GoesToEleven/GolangTraining)（时间较早）
+
