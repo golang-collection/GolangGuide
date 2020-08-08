@@ -105,5 +105,5 @@
 
 \[3\] Go Developer Roadmap: [https://github.com/Alikhll/golang-developer-roadmap](https://github.com/Alikhll/golang-developer-roadmap)
 
-\[4\] GolangTraining：[https://github.com/GoesToEleven/GolangTraining](https://github.com/GoesToEleven/GolangTraining)（时间较早）
+\[4\] [http://go-lang.cat-v.org/](http://go-lang.cat-v.org/)
 

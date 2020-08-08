@@ -2,6 +2,8 @@
 
 * [GolangGuide](README.md)
 * [Gophers](gophers.md)
+* [安装](an-zhuang.md)
+* [Go 环境变量](go-huan-jing-bian-liang.md)
 
 ## Go语言基础
 

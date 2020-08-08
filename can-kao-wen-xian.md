@@ -18,3 +18,5 @@
 
 \[9\] Gopher Reading List：[https://github.com/enocom/gopher-reading-list](https://github.com/enocom/gopher-reading-list)
 
+\[10\] Go 学习笔记：[https://github.com/qyuhen/book](https://github.com/qyuhen/book)
+
