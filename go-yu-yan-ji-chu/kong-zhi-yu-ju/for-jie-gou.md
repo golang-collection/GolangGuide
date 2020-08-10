@@ -2,7 +2,7 @@
 
 转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/05.4.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/05.4.md)
 
-如果想要重复执行某些语句，Go 语言中您只有 for 结构可以使用。不要小看它，这个 for 结构比其它语言中的更为灵活。
+如果想要重复执行某些语句，Go 语言中只有 for 结构可以使用。不要小看它，这个 for 结构比其它语言中的更为灵活。
 
 **注意事项** 其它许多语言中也没有发现和 do while 完全对等的 for 结构，可能是因为这种需求并不是那么强烈。
 
@@ -10,7 +10,7 @@
 
 下段代码演示了最简单的基于计数器的迭代，基本形式为：
 
-```text
+```go
 package main
 
 import "fmt"
@@ -24,7 +24,7 @@ func main() {
 
 输出：
 
-```text
+```go
 This is the 0 iteration
 This is the 1 iteration
 This is the 2 iteration
@@ -38,11 +38,11 @@ This is the 4 iteration
 
 同样的，左花括号 `{` 必须和 for 语句在同一行，计数器的生命周期在遇到右花括号 `}` 时便终止。一般习惯使用 i、j、z 或 ix 等较短的名称命名计数器。
 
-特别注意，永远不要在循环体内修改计数器，这在任何语言中都是非常差的实践！
+**特别注意，永远不要在循环体内修改计数器，这在任何语言中都是非常差的实践！**
 
 您还可以在循环中同时使用多个计数器：
 
-```text
+```go
 for i, j := 0, N; i < j; i, j = i+1, j-1 {}
 ```
 
@@ -50,7 +50,7 @@ for i, j := 0, N; i < j; i, j = i+1, j-1 {}
 
 您可以将两个 for 循环嵌套起来：
 
-```text
+```go
 for i:=0; i<5; i++ {
 	for j:=0; j<10; j++ {
 		println(j)
@@ -60,7 +60,7 @@ for i:=0; i<5; i++ {
 
 如果您使用 for 循环迭代一个 Unicode 编码的字符串，会发生什么？
 
-```text
+```go
 package main
 
 import "fmt"
@@ -132,7 +132,7 @@ for 结构的第二种形式是没有头部的条件判断迭代（类似其它�
 
 您也可以认为这是没有初始化语句和修饰语句的 for 结构，因此 `;;` 便是多余的了。
 
-```text
+```go
 package main
 
 import "fmt"
@@ -149,7 +149,7 @@ func main() {
 
 输出：
 
-```text
+```go
 The variable i is now: 4
 The variable i is now: 3
 The variable i is now: 2
@@ -164,13 +164,13 @@ The variable i is now: -1
 
 如果 for 循环的头部没有条件语句，那么就会认为条件永远为 true，因此循环体内必须有相关的条件判断以确保会在某个时刻退出循环。
 
-想要直接退出循环体，可以使用 break 语句（第 5.5 节）或 return 语句直接返回（第 6.1 节）。
+想要直接退出循环体，可以使用 break 语句或 return 语句直接返回。
 
 但这两者之间有所区别，break 只是退出当前的循环体，而 return 语句提前对函数进行返回，不会执行后续的代码。
 
 无限循环的经典应用是服务器，用于不断等待和接受新的请求。
 
-```text
+```go
 for t, err = p.Token(); err == nil; t, err = p.Token() {
 	...
 }
@@ -182,7 +182,7 @@ for t, err = p.Token(); err == nil; t, err = p.Token() {
 
 要注意的是，`val` 始终为集合中对应索引的值拷贝，因此它一般只具有只读性质，对它所做的任何修改都不会影响到集合中原有的值（**译者注：如果 `val` 为指针，则会产生指针的拷贝，依旧可以修改集合中的原值**）。一个字符串是 Unicode 编码的字符（或称之为 `rune`）集合，因此您也可以用它迭代字符串：
 
-```text
+```go
 for pos, char := range str {
 ...
 }
@@ -190,7 +190,7 @@ for pos, char := range str {
 
 每个 rune 字符和索引在 for-range 循环中是一一对应的。它能够自动根据 UTF-8 规则识别 Unicode 编码的字符。
 
-```text
+```go
 package main
 
 import "fmt"
@@ -217,7 +217,7 @@ func main() {
 
 输出：
 
-```text
+```go
 The length of str is: 27
 Character on position 0 is: G 
 Character on position 1 is: o 
@@ -276,7 +276,7 @@ index int(rune) rune    char bytes
 15      35486      U+8A9E '語' E8 AA 9E
 ```
 
-请将输出结果和 Listing 5.7（for\_string.go）进行对比。
+请将输出结果之前的输出结果进行对比。
 
 我们可以看到，常用英文字符使用 1 个字节表示，而汉字（**译者注：严格来说，“Chinese: 日本語”的Chinese应该是Japanese**）使用 3 个字符表示。
 

@@ -87,7 +87,7 @@ switch {
 
 例如：
 
-```text
+```go
 switch {
 	case i < 0:
 		f1()
@@ -121,13 +121,13 @@ func main() {
 
 输出：
 
-```text
+```go
 Number is between 0 and 10
 ```
 
 switch 语句的第三种形式是包含一个初始化语句：
 
-```text
+```go
 switch initialization {
 	case val1:
 		...
@@ -140,7 +140,7 @@ switch initialization {
 
 这种形式可以非常优雅地进行条件判断：
 
-```text
+```go
 switch result := calculate() {
 	case result < 0:
 		...
@@ -153,7 +153,7 @@ switch result := calculate() {
 
 在下面这个代码片段中，变量 a 和 b 被平行初始化，然后作为判断条件：
 
-```text
+```go
 switch a, b := x[i], y[j] {
 	case a < b: t = -1
 	case a == b: t = 0

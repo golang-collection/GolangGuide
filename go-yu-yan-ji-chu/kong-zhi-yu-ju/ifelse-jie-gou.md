@@ -83,8 +83,6 @@ if condition {
 return y
 ```
 
-**注意事项** 不要同时在 if-else 结构的两个分支里都使用 return 语句，这将导致编译报错 `function ends without a return statement`（你可以认为这是一个编译器的 Bug 或者特性）。（ **译者注：该问题已经在 Go 1.1 中被修复或者说改进** ）
-
 这里举一些有用的例子：
 
 1. 判断一个字符串是否为空：
@@ -138,7 +136,7 @@ return y
 
 在第四种情况中，if 可以包含一个初始化语句（如：给一个变量赋值）。这种写法具有固定的格式（在初始化语句后方必须加上分号）：
 
-```text
+```go
 if initialization; condition {
 	// do something
 }
@@ -146,7 +144,7 @@ if initialization; condition {
 
 例如:
 
-```text
+```go
 val := 10
 if val > max {
 	// do something
@@ -155,7 +153,7 @@ if val > max {
 
 你也可以这样写:
 
-```text
+```go
 if val := 10; val > max {
 	// do something
 }
@@ -189,14 +187,14 @@ func main() {
 
 输出：
 
-```text
+```go
 first is 5 or greater
 cond is not greater than 10
 ```
 
 下面的代码片段展示了如何通过在初始化语句中获取函数 `process()` 的返回值，并在条件语句中作为判定条件来决定是否执行 if 结构中的代码：
 
-```text
+```go
 if value := process(data); value > max {
 	...
 }
