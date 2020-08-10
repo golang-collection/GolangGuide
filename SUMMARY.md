@@ -54,6 +54,7 @@
 * [并发相关](go-yu-yan-jin-jie/bing-fa-xiang-guan.md)
 * [网络相关](go-yu-yan-jin-jie/wang-luo-xiang-guan/README.md)
   * [socket](go-yu-yan-jin-jie/wang-luo-xiang-guan/socket.md)
+  * [小型爬虫](go-yu-yan-jin-jie/wang-luo-xiang-guan/xiao-xing-pa-chong.md)
 * [Sync包与锁](go-yu-yan-jin-jie/sync-bao-yu-suo.md)
 * [密码学](go-yu-yan-jin-jie/mi-ma-xue.md)
 * [反射相关](go-yu-yan-jin-jie/fan-she-xiang-guan.md)
@@ -61,11 +62,15 @@
 
 ## 常用框架
 
-* [Untitled](chang-yong-kuang-jia/untitled.md)
+* [数据库操作](chang-yong-kuang-jia/shu-ju-ku-cao-zuo/README.md)
+  * [MySQL](chang-yong-kuang-jia/shu-ju-ku-cao-zuo/mysql.md)
+  * [redis](chang-yong-kuang-jia/shu-ju-ku-cao-zuo/redis.md)
+* [web框架](chang-yong-kuang-jia/untitled.md)
 
 ## 项目实战
 
-* [Untitled](xiang-mu-shi-zhan/untitled.md)
+* [分布式爬虫](xiang-mu-shi-zhan/untitled.md)
+* [微服务架构](xiang-mu-shi-zhan/wei-fu-wu-jia-gou.md)
 * [推荐资源](xiang-mu-shi-zhan/tui-jian-zi-yuan.md)
 
 ---
