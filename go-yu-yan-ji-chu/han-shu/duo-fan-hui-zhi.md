@@ -1,10 +1,12 @@
 # 多返回值
 
-Go 语言的函数经常使用两个返回值来表示执行是否成功：返回某个值以及 true 表示成功；返回零值（或 nil）和 false 表示失败（第 4.4 节）。当不使用 true 或 false 的时候，也可以使用一个 error 类型的变量来代替作为第二个返回值：成功执行的话，error 的值为 nil，否则就会包含相应的错误信息（Go 语言中的错误类型为 error: `var err error`，我们将会在第 13 章进行更多地讨论）。这样一来，就很明显需要用一个 if 语句来测试执行结果；由于其符号的原因，这样的形式又称之为 comma,ok 模式（pattern）。
+转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/05.2.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/05.2.md)
 
-在第 4.7 节的程序 `string_conversion.go` 中，函数 `strconv.Atoi` 的作用是将一个字符串转换为一个整数。之前我们忽略了相关的错误检查：
+Go 语言的函数经常使用两个返回值来表示执行是否成功：返回某个值以及 true 表示成功；返回零值（或 nil）和 false 表示失败。当不使用 true 或 false 的时候，也可以使用一个 error 类型的变量来代替作为第二个返回值：成功执行的话，error 的值为 nil，否则就会包含相应的错误信息。这样一来，就很明显需要用一个 if 语句来测试执行结果；由于其符号的原因，这样的形式又称之为 comma,ok 模式（pattern）。
 
-```text
+函数 `strconv.Atoi` 的作用是将一个字符串转换为一个整数。之前我们忽略了相关的错误检查：
+
+```go
 anInt, _ = strconv.Atoi(origStr)
 ```
 
@@ -16,9 +18,7 @@ anInt, _ = strconv.Atoi(origStr)
 
 示例 1：
 
-示例 5.3 [string\_conversion2.go](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/examples/chapter_5/string_conversion2.go)
-
-```text
+```go
 package main
 
 import (
@@ -50,7 +50,7 @@ func main() {
 
 **习惯用法**
 
-```text
+```go
 value, err := pack1.Function1(param1)
 if err != nil {
 	fmt.Printf("An error occured in pack1.Function1 with parameter %v", param1)
@@ -65,7 +65,7 @@ if err != nil {
 
 **习惯用法**
 
-```text
+```go
 if err != nil {
 	fmt.Printf("Program stopping with error %v", err)
 	os.Exit(1)
@@ -80,7 +80,7 @@ if err != nil {
 
 示例 2：我们尝试通过 `os.Open` 方法打开一个名为 `name` 的只读文件：
 
-```text
+```go
 f, err := os.Open(name)
 if err != nil {
 	return err
@@ -89,13 +89,11 @@ doSomething(f) // 当没有错误发生时，文件对象被传入到某个函�
 doSomething
 ```
 
-**练习 5.1** 尝试改写 [string\_conversion2.go](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/examples/chapter_5/string_conversion2.go) 中的代码，要求使用 `:=` 方法来对 err 进行赋值，哪些地方可以被修改？
-
 示例 3：可以将错误的获取放置在 if 语句的初始化部分：
 
 **习惯用法**
 
-```text
+```go
 if err := file.Chmod(0664); err != nil {
 	fmt.Println(err)
 	return err
@@ -106,7 +104,7 @@ if err := file.Chmod(0664); err != nil {
 
 **习惯用法**
 
-```text
+```go
 if value, ok := readData(); ok {
 …
 }
@@ -116,7 +114,7 @@ if value, ok := readData(); ok {
 
 如果您像下面一样，没有为多返回值的函数准备足够的变量来存放结果：
 
-```text
+```go
 func mySqrt(f float64) (v float64, ok bool) {
 	if f < 0 { return } // error case
 	return math.Sqrt(f),true
@@ -132,7 +130,7 @@ func main() {
 
 正确的做法是：
 
-```text
+```go
 t, ok := mySqrt(25.0)
 if ok { fmt.Println(t) }
 ```
@@ -141,24 +139,18 @@ if ok { fmt.Println(t) }
 
 当您将字符串转换为整数时，且确定转换一定能够成功时，可以将 `Atoi` 函数进行一层忽略错误的封装：
 
-```text
+```go
 func atoi (s string) (n int) {
 	n, _ = strconv.Atoi(s)
 	return
 }
 ```
 
-实际上，`fmt` 包（第 4.4.3 节）最简单的打印函数也有 2 个返回值：
+实际上，`fmt` 包最简单的打印函数也有 2 个返回值：
 
-```text
+```go
 count, err := fmt.Println(x) // number of bytes printed, nil or 0, error
 ```
 
-当打印到控制台时，可以将该函数返回的错误忽略；但当输出到文件流、网络流等具有不确定因素的输出对象时，应该始终检查是否有错误发生（另见练习 6.1b）。
-
-## 链接
-
-* [目录](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/directory.md)
-* 上一节：[if-else 结构](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/05.1.md)
-* 下一节：[switch 结构](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/05.3.md)
+当打印到控制台时，可以将该函数返回的错误忽略；但当输出到文件流、网络流等具有不确定因素的输出对象时，应该始终检查是否有错误发生。
 
