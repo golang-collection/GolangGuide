@@ -75,6 +75,7 @@
 * [分布式搜索引擎](fen-bu-shi-cao-zuo/fen-bu-shi-sou-suo-yin-qing.md)
 * [消息队列](fen-bu-shi-cao-zuo/xiao-xi-dui-lie.md)
 * [网关](fen-bu-shi-cao-zuo/wang-guan.md)
+* [反向代理](fen-bu-shi-cao-zuo/fan-xiang-dai-li.md)
 * [负载均衡](fen-bu-shi-cao-zuo/fu-zai-jun-heng.md)
 * [注册中心](fen-bu-shi-cao-zuo/zhu-ce-zhong-xin.md)
 * [配置中心](fen-bu-shi-cao-zuo/pei-zhi-zhong-xin.md)
