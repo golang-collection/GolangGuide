@@ -10,15 +10,11 @@
 
 \[5\] 《Go Web 基础》：[https://github.com/unknwon/go-web-foundation](https://github.com/unknwon/go-web-foundation)
 
-\[6\] Ultimate Go study guide: [https://github.com/hoanhan101/ultimate-go](https://github.com/hoanhan101/ultimate-go)
+\[6\] Learn Go with tests: [https://studygolang.gitbook.io/learn-go-with-tests/](https://studygolang.gitbook.io/learn-go-with-tests/)
 
-\[7\] Learn Go with tests: [https://studygolang.gitbook.io/learn-go-with-tests/](https://studygolang.gitbook.io/learn-go-with-tests/)
+\[7\] 《Go 编程基础》：[https://github.com/unknwon/go-fundamental-programming](https://github.com/unknwon/go-fundamental-programming)
 
-\[8\] 《Go 编程基础》：[https://github.com/unknwon/go-fundamental-programming](https://github.com/unknwon/go-fundamental-programming)
+\[8\] Go 学习笔记：[https://github.com/qyuhen/book](https://github.com/qyuhen/book)
 
-\[9\] Gopher Reading List：[https://github.com/enocom/gopher-reading-list](https://github.com/enocom/gopher-reading-list)
-
-\[10\] Go 学习笔记：[https://github.com/qyuhen/book](https://github.com/qyuhen/book)
-
-\[11\] effective-go-zh-en：[https://github.com/bingohuang/effective-go-zh-en](https://github.com/bingohuang/effective-go-zh-en)
+\[9\] effective-go-zh-en：[https://github.com/bingohuang/effective-go-zh-en](https://github.com/bingohuang/effective-go-zh-en)
 
