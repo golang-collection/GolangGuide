@@ -20,3 +20,5 @@
 
 \[10\] Go 学习笔记：[https://github.com/qyuhen/book](https://github.com/qyuhen/book)
 
+\[11\] effective-go-zh-en：[https://github.com/bingohuang/effective-go-zh-en](https://github.com/bingohuang/effective-go-zh-en)
+
