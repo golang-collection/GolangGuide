@@ -1,5 +1,7 @@
 # GolangGuide
 
+![](.gitbook/assets/7th_birthday.png)
+
 ## 项目介绍
 
 本项目是对Go语言内容的梳理，包括Go语言基础与常用框架。涉及到的知识点用demo的形式帮助你快速上手。
