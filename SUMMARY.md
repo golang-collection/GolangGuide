@@ -80,7 +80,8 @@
 ## 常用框架
 
 * [数据库操作](chang-yong-kuang-jia/shu-ju-ku-cao-zuo/README.md)
-  * [MySQL](chang-yong-kuang-jia/shu-ju-ku-cao-zuo/mysql.md)
+  * [MySQL](chang-yong-kuang-jia/shu-ju-ku-cao-zuo/mysql/README.md)
+    * [gorm](chang-yong-kuang-jia/shu-ju-ku-cao-zuo/mysql/gorm.md)
   * [redis](chang-yong-kuang-jia/shu-ju-ku-cao-zuo/redis.md)
 * [web框架](chang-yong-kuang-jia/untitled/README.md)
   * [gin](chang-yong-kuang-jia/untitled/gin/README.md)
