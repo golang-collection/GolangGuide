@@ -1,6 +1,6 @@
 # 常用内置函数
 
-转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/06.5.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/06.5.md)
+转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/06.5.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/06.5.md) by unknwon
 
 Go 语言拥有一些不需要进行导入操作就可以使用的内置函数。它们有时可以针对不同的类型进行操作，例如：len、cap 和 append，或必须用于系统级的操作，例如：panic。因此，它们需要直接获得编译器的支持。
 
