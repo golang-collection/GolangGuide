@@ -30,6 +30,7 @@
   * [init函数](go-yu-yan-ji-chu/han-shu/init-han-shu.md)
   * [递归函数](go-yu-yan-ji-chu/han-shu/di-gui-tiao-yong-fen-xi.md)
   * [函数执行时间](go-yu-yan-ji-chu/han-shu/han-shu-zhi-hang-shi-jian.md)
+  * [缓存提升性能](go-yu-yan-ji-chu/han-shu/huan-cun-ti-sheng-xing-neng.md)
   * [逃逸分析](go-yu-yan-ji-chu/han-shu/tao-yi-fen-xi.md)
 * [错误处理](go-yu-yan-ji-chu/cuo-wu-chu-li.md)
 * [常用内置函数](go-yu-yan-ji-chu/chang-yong-nei-zhi-han-shu.md)
