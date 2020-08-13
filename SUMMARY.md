@@ -49,6 +49,7 @@
   * [for-range遍历字典](go-yu-yan-ji-chu/zi-dian/forrange-bian-li-zi-dian.md)
   * [map类型的切片](go-yu-yan-ji-chu/zi-dian/map-lei-xing-de-qie-pian.md)
   * [map的排序](go-yu-yan-ji-chu/zi-dian/map-de-pai-xu.md)
+  * [将 map 的键值对调](go-yu-yan-ji-chu/zi-dian/jiang-map-de-jian-zhi-dui-tiao.md)
 * [math包](go-yu-yan-ji-chu/math-bao/README.md)
   * [big包](go-yu-yan-ji-chu/math-bao/big-bao.md)
 * [container包](go-yu-yan-ji-chu/container-bao.md)
