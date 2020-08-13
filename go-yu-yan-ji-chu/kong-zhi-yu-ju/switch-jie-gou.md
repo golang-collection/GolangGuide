@@ -1,6 +1,6 @@
 # switch 结构
 
-转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/05.3.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/05.3.md)
+转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/05.3.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/05.3.md) by unknown
 
 相比较 C 和 Java 等其它语言而言，Go 语言中的 switch 结构使用上更加灵活。它接受任意形式的表达式：
 

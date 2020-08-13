@@ -1,6 +1,6 @@
 # for 结构
 
-转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/05.4.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/05.4.md)
+转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/05.4.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/05.4.md) by unknown
 
 如果想要重复执行某些语句，Go 语言中只有 for 结构可以使用。不要小看它，这个 for 结构比其它语言中的更为灵活。
 

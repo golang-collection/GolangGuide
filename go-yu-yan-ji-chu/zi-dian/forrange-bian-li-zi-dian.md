@@ -4,7 +4,7 @@
 
 可以使用 for 循环构造 map：
 
-```text
+```go
 for key, value := range map1 {
 	...
 }
@@ -12,7 +12,7 @@ for key, value := range map1 {
 
 第一个返回值 key 是 map 中的 key 值，第二个返回值则是该 key 对应的 value 值；这两个都是仅 for 循环内部可见的局部变量。其中第一个返回值key值是一个可选元素。如果你只关心值，可以这么使用：
 
-```text
+```go
 for _, value := range map1 {
 	...
 }
@@ -20,7 +20,7 @@ for _, value := range map1 {
 
 如果只想获取 key，你可以这么使用：
 
-```text
+```go
 for key := range map1 {
 	fmt.Printf("key is: %d\n", key)
 }

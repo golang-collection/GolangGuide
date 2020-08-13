@@ -1,6 +1,6 @@
 # if-else 结构
 
-转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/05.1.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/05.1.md)
+转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/05.1.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/05.1.md) by unknown
 
 if 是用于测试某个条件（布尔型或逻辑型）的语句，如果该条件成立，则会执行 if 后由大括号括起来的代码块，否则就忽略该代码块继续执行后续的代码。
 
