@@ -2,9 +2,11 @@
 
 * [GolangGuide](README.md)
 * [Gophers](gophers.md)
-* [安装](an-zhuang.md)
+* [安装](an-zhuang/README.md)
+  * [Mac OS](an-zhuang/mac-os.md)
 * [Go 环境变量](go-huan-jing-bian-liang.md)
 * [常用命令](chang-yong-ming-ling.md)
+* [go mod](go-mod.md)
 
 ## Go语言基础
 
@@ -67,6 +69,7 @@
 * [接口](go-yu-yan-ji-chu/jie-kou/README.md)
   * [类型断言](go-yu-yan-ji-chu/jie-kou/lei-xing-duan-yan.md)
   * [类型判断](go-yu-yan-ji-chu/jie-kou/lei-xing-pan-duan.md)
+  * [Sorter接口排序](go-yu-yan-ji-chu/jie-kou/sorter-jie-kou-pai-xu.md)
 * [自定义包](go-yu-yan-ji-chu/zi-ding-yi-bao/README.md)
   * [生成文档](go-yu-yan-ji-chu/zi-ding-yi-bao/sheng-cheng-wen-dang.md)
   * [安装自定义包](go-yu-yan-ji-chu/zi-ding-yi-bao/an-zhuang-zi-ding-yi-bao.md)
