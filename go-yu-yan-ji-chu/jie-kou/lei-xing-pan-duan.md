@@ -4,7 +4,7 @@
 
 接口变量的类型也可以使用一种特殊形式的 `switch` 来检测：**type-switch** （下面是示例 11.4 的第二部分）：
 
-```text
+```go
 switch t := areaIntf.(type) {
 case *Square:
 	fmt.Printf("Type Square %T with value %v\n", t, t)
@@ -29,7 +29,7 @@ Type Square *main.Square with value &{5}
 
 如果仅仅是测试变量的类型，不用它的值，那么就可以不需要赋值语句，比如：
 
-```text
+```go
 switch areaIntf.(type) {
 case *Square:
 	// TODO
@@ -43,7 +43,7 @@ default:
 
 下面的代码片段展示了一个类型分类函数，它有一个可变长度参数，可以是任意类型的数组，它会根据数组元素的实际类型执行不同的动作：
 
-```text
+```go
 func classifier(items ...interface{}) {
 	for i, x := range items {
 		switch x.(type) {
@@ -67,6 +67,4 @@ func classifier(items ...interface{}) {
 可以这样调用此方法：`classifier(13, -14.3, "BELGIUM", complex(1, 2), nil, false)` 。
 
 在处理来自于外部的、类型未知的数据时，比如解析诸如 JSON 或 XML 编码的数据，类型测试和转换会非常有用。
-
-在示例 12.17（xml.go）中解析 XML 文档时，我们就会用到 `type-switch`。
 
