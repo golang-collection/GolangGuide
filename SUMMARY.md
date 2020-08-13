@@ -93,13 +93,10 @@
 
 ## 常用框架
 
-* [数据库操作](chang-yong-kuang-jia/shu-ju-ku-cao-zuo/README.md)
-  * [MySQL](chang-yong-kuang-jia/shu-ju-ku-cao-zuo/mysql/README.md)
-    * [gorm](chang-yong-kuang-jia/shu-ju-ku-cao-zuo/mysql/gorm.md)
-  * [redis](chang-yong-kuang-jia/shu-ju-ku-cao-zuo/redis.md)
-* [web框架](chang-yong-kuang-jia/untitled/README.md)
-  * [gin](chang-yong-kuang-jia/untitled/gin/README.md)
-    * [支持跨域访问](chang-yong-kuang-jia/untitled/gin/zhi-chi-kua-yu-fang-wen.md)
+* [GORM-MySQL](chang-yong-kuang-jia/gorm-mysql.md)
+* [Redis](chang-yong-kuang-jia/redis.md)
+* [gin](chang-yong-kuang-jia/gin/README.md)
+  * [跨域访问](chang-yong-kuang-jia/gin/kua-yu-fang-wen.md)
 * [RPC](chang-yong-kuang-jia/rpc.md)
 * [go-micro](chang-yong-kuang-jia/go-micro.md)
 
