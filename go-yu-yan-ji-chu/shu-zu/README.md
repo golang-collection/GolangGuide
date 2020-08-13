@@ -118,21 +118,37 @@ package main
 
 import "fmt"
 
-func f(a [3]int) { fmt.Println(a) }
-func fp(a *[3]int) { fmt.Println(a) }
-
 func main() {
 	var ar [3]int
-	f(ar) 	// passes a copy of ar
+	f(ar)   // passes a copy of ar
+	fmt.Println("f",ar)
 	fp(&ar) // passes a pointer to ar
+	fmt.Println("fp", ar)
 }
+
+func f(a [3]int) {
+	fmt.Println("f", a)
+	a[1] = 2
+	fmt.Println("f", a)
+}
+
+func fp(a *[3]int) {
+	fmt.Println("fp", a)
+	a[1] = 2
+	fmt.Println("fp", a)
+}
+
 ```
 
 输出结果：
 
 ```go
-[0 0 0]
-&[0 0 0]
+f [0 0 0]
+f [0 2 0]
+f [0 0 0]
+fp &[0 0 0]
+fp &[0 2 0]
+fp [0 2 0]
 ```
 
 另一种方法就是生成数组切片并将其传递给函数。
@@ -141,10 +157,9 @@ func main() {
 
 如果数组值已经提前知道了，那么可以通过 **数组常量** 的方法来初始化数组，而不用依次使用 `[]=` 方法（所有的组成元素都有相同的常量语法）。
 
-示例 7.3 [array\_literals.go](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/examples/chapter_7/array_literals.go)
-
-```text
+```go
 package main
+
 import "fmt"
 
 func main() {
@@ -162,7 +177,7 @@ func main() {
 
 第一种变化：
 
-```text
+```go
 var arrAge = [5]int{18, 20, 15, 22, 16}
 ```
 
@@ -170,7 +185,7 @@ var arrAge = [5]int{18, 20, 15, 22, 16}
 
 第二种变化：
 
-```text
+```go
 var arrLazy = [...]int{5, 6, 7, 8, 22}
 ```
 
@@ -178,13 +193,13 @@ var arrLazy = [...]int{5, 6, 7, 8, 22}
 
 第三种变化：`key: value 语法`
 
-```text
+```go
 var arrKeyValue = [5]string{3: "Chris", 4: "Ron"}
 ```
 
 只有索引 3 和 4 被赋予实际的值，其他元素都被设置为空的字符串，所以输出结果为：
 
-```text
+```go
 Person at 0 is
 Person at 1 is
 Person at 2 is
@@ -196,10 +211,9 @@ Person at 4 is Ron
 
 你可以取任意数组常量的地址来作为指向新实例的指针。
 
-示例 7.4 [pointer\_array2.go](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/examples/chapter_7/pointer_array2.go)
-
-```text
+```go
 package main
+
 import "fmt"
 
 func fp(a *[3]int) { fmt.Println(a) }
@@ -213,29 +227,21 @@ func main() {
 
 输出结果：
 
-```text
+```go
 &[0 0 0]
 &[1 1 1]
 &[2 4 8]
 ```
 
-几何点（或者数学向量）是一个使用数组的经典例子。为了简化代码通常使用一个别名：
-
-```text
-type Vector3D [3]float32
-var vec Vector3D
-```
-
-### 7.1.3 多维数组
+## 多维数组
 
 数组通常是一维的，但是可以用来组装成多维数组，例如：`[3][5]int`，`[2][2][2]float64`。
 
-内部数组总是长度相同的。Go 语言的多维数组是矩形式的（唯一的例外是切片的数组，参见第 7.2.5 节）。
+内部数组总是长度相同的。Go 语言的多维数组是矩形式的。
 
-示例 7.5 [multidim\_array.go](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/examples/chapter_7/multidim_array.go)
-
-```text
+```go
 package main
+
 const (
 	WIDTH  = 1920
 	HEIGHT = 1080
@@ -253,7 +259,7 @@ func main() {
 }
 ```
 
-### 7.1.4 将数组传递给函数
+## 将数组传递给函数
 
 把一个大数组传递给函数会消耗很多内存。有两种方法可以避免这种现象：
 
@@ -262,10 +268,9 @@ func main() {
 
 接下来的例子阐明了第一种方法：
 
-示例 7.6 [array\_sum.go](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/examples/chapter_7/array_sum.go)
-
-```text
+```go
 package main
+
 import "fmt"
 
 func main() {
@@ -289,5 +294,41 @@ func Sum(a *[3]float64) (sum float64) {
 The sum of the array is: 24.600000
 ```
 
-但这在 Go 中并不常用，通常使用切片（参考 [第 7.2 节](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/07.2.md)）。
+但这在 Go 中并不常用，通常使用切片。
+
+## 数组的长度
+
+内置函数len和cap都返回数组的第一维长度
+
+```go
+func main() {
+	a := [2]int{}
+	b := [...][2]int{
+		{1,2},
+		{3,4},
+		{5,6},
+	}
+	fmt.Println(len(a), cap(a))
+	fmt.Println(len(b), cap(b))
+}
+```
+
+输出结果
+
+```go
+2 2
+3 3
+```
+
+如果想要获取二维数组内部长度可以使用如下代码
+
+```go
+fmt.Println(len(b[0]), cap(b[0]))
+```
+
+输出结果
+
+```go
+2 2
+```
 
