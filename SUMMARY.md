@@ -70,9 +70,6 @@
   * [类型断言](go-yu-yan-ji-chu/jie-kou/lei-xing-duan-yan.md)
   * [类型判断](go-yu-yan-ji-chu/jie-kou/lei-xing-pan-duan.md)
   * [Sorter接口排序](go-yu-yan-ji-chu/jie-kou/sorter-jie-kou-pai-xu.md)
-* [自定义包](go-yu-yan-ji-chu/zi-ding-yi-bao/README.md)
-  * [生成文档](go-yu-yan-ji-chu/zi-ding-yi-bao/sheng-cheng-wen-dang.md)
-  * [安装自定义包](go-yu-yan-ji-chu/zi-ding-yi-bao/an-zhuang-zi-ding-yi-bao.md)
 * [测试](go-yu-yan-ji-chu/ce-shi.md)
 
 ## Go语言进阶
