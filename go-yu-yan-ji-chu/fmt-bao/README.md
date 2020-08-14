@@ -58,7 +58,7 @@ func main() {
 }
 ```
 
-#### 1.1.2. 占位符 <a id="&#x5360;&#x4F4D;&#x7B26;"></a>
+### 占位符
 
 **普通占位符**
 
@@ -163,24 +163,24 @@ func main() {
 若其格式（它对于 Println 等函数是隐式的 %v）对于字符串是有效的 （%s %q %v %x %X），以下两条规则也适用：
 
 ```text
-    1. 若一个操作数实现了 error 接口，Error 方法就能将该对象转换为字符串，随后会根据占位符的需要进行格式化。
-    2. 若一个操作数实现了 String() string 方法，该方法能将该对象转换为字符串，随后会根据占位符的需要进行格式化。
+若一个操作数实现了 error 接口，Error 方法就能将该对象转换为字符串，随后会根据占位符的需要进行格式化。
+若一个操作数实现了 String() string 方法，该方法能将该对象转换为字符串，随后会根据占位符的需要进行格式化。
 ```
 
 为避免以下这类递归的情况：
 
 ```text
-    type X string
-    func (x X) String() string { return Sprintf("<%s>", x) }
+type X string
+func (x X) String() string { return Sprintf("<%s>", x) }
 ```
 
 需要在递归前转换该值：
 
 ```text
-    func (x X) String() string { return Sprintf("<%s>", string(x)) }
+func (x X) String() string { return Sprintf("<%s>", string(x)) }
 ```
 
-**格式化错误**
+### **格式化错误**
 
 如果给占位符提供了无效的实参（例如将一个字符串提供给 %d），所生成的字符串会包含该问题的描述，如下例所示：
 
@@ -197,7 +197,7 @@ func main() {
     所有错误都始于“%!”，有时紧跟着单个字符（占位符），并以小括号括住的描述结尾。
 ```
 
-### 1.2. Scanning <a id="scanning"></a>
+## Scanning
 
 一组类似的函数通过扫描已格式化的文本来产生值。 Scan、Scanf 和 Scanln 从 os.Stdin 中读取； Fscan、Fscanf 和 Fscanln 从指定的 io.Reader 中读取； Sscan、Sscanf 和 Sscanln 从实参字符串中读取。 Scanln、Fscanln 和 Sscanln 在换行符处停止扫描，且需要条目紧随换行符之后； Scanf、Fscanf 和 Sscanf 需要输入换行符来匹配格式中的换行符；其它函数则将换行符视为空格。
 
@@ -221,11 +221,9 @@ Scanf、Fscanf 和 Sscanf 根据格式字符串解析实参，类似于 Printf�
 
 在所有的扫描参数中，若一个操作数实现了 Scan 方法（即它实现了 Scanner 接口）， 该操作数将使用该方法扫描其文本。此外，若已扫描的实参数少于所提供的实参数，就会返回一个错误。
 
-所有需要被扫描的实参都必须是基本类型或 Scanner 接口的实现。
-
 注意：Fscan 等函数会从输入中多读取一个字符（rune），因此，如果循环调用扫描函数，可能会跳过输入中的某些数据。一般只有在输入的数据中没有空白符时该问题才会出现。若提供给 Fscan 的读取器实现了 ReadRune，就会用该方法读取字符。若此读取器还实现了 UnreadRune 方法，就会用该方法保存字符，而连续的调用将不会丢失数据。若要为没有 ReadRune 和 UnreadRune 方法的读取器加上这些功能，需使用 bufio.NewReader。
 
-### 1.3. Print 序列函数 <a id="print-&#x5E8F;&#x5217;&#x51FD;&#x6570;"></a>
+## Print 序列函数
 
 这里说的 Print 序列函数包括：Fprint/Fprintf/Fprintln/Sprint/Sprintf/Sprintln/Print/Printf/Println。之所以将放在一起介绍，是因为它们的使用方式类似、参数意思也类似。
 
@@ -243,7 +241,7 @@ Sprint/Sprintf/Sprintln 是格式化内容为 string 类型，而并不输出到
 
 在这三组函数中，`S/F/Printf`函数通过指定的格式输出或格式化内容；`S/F/Print`函数只是使用默认的格式输出或格式化内容；`S/F/Println`函数使用默认的格式输出或格式化内容，同时会在最后加上"换行符"。
 
-Print 序列函数的最后一个参数都是 `a ...interface{}` 这种不定参数。对于`S/F/Printf`序列，这个不定参数的实参个数应该和`formt`参数的占位符个数一致，否则会出现格式化错误；而对于其他函数，当不定参数的实参个数为多个时，它们之间会直接（对于`S/F/Print`）或通过" "（空格）（对于`S/F/Println`）连接起来（注：对于`S/F/Print`，当两个参数都不是字符串时，会自动添加一个空格，否则不会加。感谢guoshanhe1983 反馈。[官方 effective\_go](http://docs.studygolang.com/doc/effective_go.html#Printing) 也有说明）。利用这一点，我们可以做如下事情：
+Print 序列函数的最后一个参数都是 `a ...interface{}` 这种不定参数。对于`S/F/Printf`序列，这个不定参数的实参个数应该和`formt`参数的占位符个数一致，否则会出现格式化错误；而对于其他函数，当不定参数的实参个数为多个时，它们之间会直接（对于`S/F/Print`）或通过" "（空格）（对于`S/F/Println`）连接起来（注：对于`S/F/Print`，当两个参数都不是字符串时，会自动添加一个空格，否则不会加。）。利用这一点，我们可以做如下事情：
 
 ```text
 result1 := fmt.Sprintln("studygolang.com", 2013)
@@ -254,7 +252,7 @@ result1的值是：`studygolang.com 2013`，result2的值是：`studygolang.com2
 
 Print 序列函数用的较多，而且也易于使用（可能需要掌握一些常用的占位符用法），接下来我们结合 fmt 包中几个相关的接口来掌握更多关于 Print 的内容。
 
-### 1.4. Stringer 接口 <a id="stringer-&#x63A5;&#x53E3;"></a>
+## Stringer 接口
 
 Stringer接口的定义如下：
 
@@ -276,7 +274,7 @@ Stringer接口的定义如下：
     }
 ```
 
-我们给Person实现String方法，这个时候，我们输出Person的实例：
+这个时候，我们输出Person的实例：
 
 ```text
     p := &Person{"polaris", 28, 0}
@@ -323,7 +321,7 @@ Stringer接口的定义如下：
 
 可见，Stringer接口和Java中的ToString方法类似。
 
-### 1.5. Formatter 接口 <a id="formatter-&#x63A5;&#x53E3;"></a>
+## Formatter 接口
 
 Formatter 接口的定义如下：
 
@@ -402,7 +400,7 @@ State接口相关说明：
 
 fmt 包中的 print.go 文件中的`type pp struct`实现了 State 接口。由于 State 接口有 Write 方法，因此，实现了 State 接口的类型必然实现了 io.Writer 接口。
 
-### 1.6. GoStringer 接口 <a id="gostringer-&#x63A5;&#x53E3;"></a>
+## GoStringer 接口
 
 GoStringer 接口定义如下；
 
@@ -450,16 +448,16 @@ GoStringer 接口定义如下；
 
 一般的，我们不需要实现该接口。
 
-### 1.7. Scan 序列函数 <a id="scan-&#x5E8F;&#x5217;&#x51FD;&#x6570;"></a>
+## Scan 序列函数
 
 该序列函数和 Print 序列函数相对应，包括：Fscan/Fscanf/Fscanln/Sscan/Sscanf/Sscanln/Scan/Scanf/Scanln。
 
 一般的，我们将Fscan/Fscanf/Fscanln归为一类；Sscan/Sscanf/Sscanln归为一类；Scan/Scanf/Scanln归为另一类。其中，Scan/Scanf/Scanln会调用相应的F开头一类函数。如：
 
 ```text
-    func Scan(a ...interface{}) (n int, err error) {
-        return Fscan(os.Stdin, a...)
-    }
+func Scan(a ...interface{}) (n int, err error) {
+     return Fscan(os.Stdin, a...)
+}
 ```
 
 Fscan/Fscanf/Fscanln 函数的第一个参数接收一个 io.Reader 类型，从其读取内容并赋值给相应的实参。而 Scan/Scanf/Scanln 正是从标准输入获取内容，因此，直接调用 F类函数 做这件事，并将 os.Stdin 作为第一个参数传入。
@@ -560,7 +558,7 @@ Sscan/Sscanf/Sscanln 则直接从字符串中获取内容。
 
 目前的解决方法是：换用Scanln或者改为Scanf\("%s\n", &name\)。
 
-### 1.8. Scanner 和 ScanState 接口 <a id="scanner-&#x548C;-scanstate-&#x63A5;&#x53E3;"></a>
+## Scanner 和 ScanState 接口
 
 基本上，我们不会去自己实现这两个接口，只需要使用上文中相应的 Scan 函数就可以了。这里只是简单的介绍一下这两个接口的作用。
 
@@ -569,167 +567,4 @@ Sscan/Sscanf/Sscanln 则直接从字符串中获取内容。
 ScanState 是一个交给用户定制的 Scanner 接口的参数的接口。Scanner 接口可能会进行一次一个字符的扫描或者要求 ScanState 去探测下一个空白分隔的 token。该接口的方法基本上在 io 包中都有讲解，这里不赘述。
 
 在fmt包中，scan.go 文件中的 ss 结构实现了 ScanState 接口。
-
-### 1.9. fmt/print.go 阅读 <a id="fmtprintgo-&#x9605;&#x8BFB;"></a>
-
-#### 1.9.1. Fprint <a id="fprint"></a>
-
-```text
-func Fprint(w io.Writer, a ...interface{}) (n int, err error) {
-    p := newPrinter()           
-    p.doPrint(a)
-    n, err = w.Write(p.buf)
-    p.free()
-    return
-}
-```
-
-#### 1.9.2. newPrinter <a id="newprinter"></a>
-
-```text
-
-type pp struct {
-    buf buffer
-
-    arg interface{}
-
-    value reflect.Value
-
-    fmt fmt
-
-    reordered bool
-
-    goodArgNum bool
-
-    panicking bool
-
-    erroring bool
-}
-
-
-var ppFree = sync.Pool{
-    New: func() interface{} { return new(pp) },
-}
-
-
-func newPrinter() *pp {
-    p := ppFree.Get().(*pp)
-    p.panicking = false
-    p.erroring = false
-    p.fmt.init(&p.buf)
-    return p
-}
-```
-
-#### 1.9.3. doPrint <a id="doprint"></a>
-
-```text
-func (p *pp) doPrint(a []interface{}) {
-    prevString := false
-
-    
-    for argNum, arg := range a {
-        
-        isString := arg != nil && reflect.TypeOf(arg).Kind() == reflect.String
-
-        
-        if argNum > 0 && !isString && !prevString {
-            p.buf.WriteByte(' ')
-        }
-        p.printArg(arg, 'v')
-        prevString = isString
-    }
-}
-```
-
-#### 1.9.4. printArg <a id="printarg"></a>
-
-```text
-func (p *pp) printArg(arg interface{}, verb rune) {
-    p.arg = arg
-    p.value = reflect.Value{}
-
-    if arg == nil {
-        switch verb {
-        case 'T', 'v':
-            p.fmt.padString(nilAngleString)
-        default:
-            p.badVerb(verb)
-        }
-        return
-    }
-
-    switch verb {
-    case 'T':
-        p.fmt.fmt_s(reflect.TypeOf(arg).String())
-        return
-    case 'p':
-        p.fmtPointer(reflect.ValueOf(arg), 'p')
-        return
-    }
-
-    
-    switch f := arg.(type) {
-    case bool:
-        p.fmtBool(f, verb)
-    case float32:
-        p.fmtFloat(float64(f), 32, verb)
-    case float64:
-        p.fmtFloat(f, 64, verb)
-    case complex64:
-        p.fmtComplex(complex128(f), 64, verb)
-    case complex128:
-        p.fmtComplex(f, 128, verb)
-    case int:
-        p.fmtInteger(uint64(f), signed, verb)
-    case int8:
-        p.fmtInteger(uint64(f), signed, verb)
-    case int16:
-        p.fmtInteger(uint64(f), signed, verb)
-    case int32:
-        p.fmtInteger(uint64(f), signed, verb)
-    case int64:
-        p.fmtInteger(uint64(f), signed, verb)
-    case uint:
-        p.fmtInteger(uint64(f), unsigned, verb)
-    case uint8:
-        p.fmtInteger(uint64(f), unsigned, verb)
-    case uint16:
-        p.fmtInteger(uint64(f), unsigned, verb)
-    case uint32:
-        p.fmtInteger(uint64(f), unsigned, verb)
-    case uint64:
-        p.fmtInteger(f, unsigned, verb)
-    case uintptr:
-        p.fmtInteger(uint64(f), unsigned, verb)
-    case string:
-        p.fmtString(f, verb)
-    case []byte:
-        p.fmtBytes(f, verb, "[]byte")
-    case reflect.Value:
-        
-        
-        if f.IsValid() && f.CanInterface() {
-            p.arg = f.Interface()
-            if p.handleMethods(verb) {
-                return
-            }
-        }
-        p.printValue(f, verb, 0)
-    default:
-        
-        if !p.handleMethods(verb) {
-            
-            
-            p.printValue(reflect.ValueOf(f), verb, 0)
-        }
-    }
-}
-```
-
-## 2. 导航 <a id="&#x5BFC;&#x822A;"></a>
-
-* [目录](https://books.studygolang.com/The-Golang-Standard-Library-by-Example/preface.md)
-* 上一节：[ioutil — 方便的IO操作函数集](https://books.studygolang.com/The-Golang-Standard-Library-by-Example/chapter01/01.2.html)
-* 下一节：[bufio — 缓存IO](https://books.studygolang.com/The-Golang-Standard-Library-by-Example/chapter01/01.4.html)
 
