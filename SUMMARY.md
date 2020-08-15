@@ -5,7 +5,8 @@
 * [安装](an-zhuang/README.md)
   * [Mac OS](an-zhuang/mac-os.md)
 * [Go 环境变量](go-huan-jing-bian-liang.md)
-* [常用命令](chang-yong-ming-ling.md)
+* [常用命令](chang-yong-ming-ling/README.md)
+  * [go build](chang-yong-ming-ling/go-build.md)
 * [go mod](go-mod.md)
 
 ## Go语言基础
