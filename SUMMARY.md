@@ -94,7 +94,8 @@
 
 ## 常用框架
 
-* [GORM-MySQL](chang-yong-kuang-jia/gorm-mysql.md)
+* [GORM-MySQL](chang-yong-kuang-jia/gorm-mysql/README.md)
+  * [fuckdb](chang-yong-kuang-jia/gorm-mysql/fuckdb.md)
 * [Redis](chang-yong-kuang-jia/redis.md)
 * [gin](chang-yong-kuang-jia/gin/README.md)
   * [跨域访问](chang-yong-kuang-jia/gin/kua-yu-fang-wen.md)
