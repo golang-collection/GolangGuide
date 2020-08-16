@@ -1,4 +1,4 @@
-# 字典
+# 字典map
 
 转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/08.0.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/08.0.md) by unknown
 
@@ -224,4 +224,8 @@ Is "Paris" in map1 ?: false
 Value is: 0
 map1 does not contain Washington
 ```
+
+## 清空字典
+
+Go语言中并没有为 map 提供任何清空所有元素的函数、方法，清空 map 的唯一办法就是重新 make 一个新的 map，不用担心垃圾回收的效率，Go语言中的并行垃圾回收效率比写一个清空函数要高效的多。
 

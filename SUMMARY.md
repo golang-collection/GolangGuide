@@ -53,7 +53,7 @@
 * [切片](go-yu-yan-ji-chu/qie-pian/README.md)
   * [切片和垃圾回收](go-yu-yan-ji-chu/qie-pian/qie-pian-he-la-ji-hui-shou.md)
   * [切片与数组](go-yu-yan-ji-chu/qie-pian/qie-pian-yu-shu-zu.md)
-* [字典](go-yu-yan-ji-chu/zi-dian/README.md)
+* [字典map](go-yu-yan-ji-chu/zi-dian/README.md)
   * [for-range遍历字典](go-yu-yan-ji-chu/zi-dian/forrange-bian-li-zi-dian.md)
   * [map类型的切片](go-yu-yan-ji-chu/zi-dian/map-lei-xing-de-qie-pian.md)
   * [map的排序](go-yu-yan-ji-chu/zi-dian/map-de-pai-xu.md)
