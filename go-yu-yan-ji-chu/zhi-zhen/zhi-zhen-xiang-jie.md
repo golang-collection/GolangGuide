@@ -249,7 +249,7 @@ func main() {
 
 由于之前已经使用 flag.String 注册了一个名为 mode 的命令行参数，flag 底层知道怎么解析命令行，并且将值赋给 mode\*string 指针，在 Parse 调用完毕后，无须从 flag 获取值，而是通过自己注册的这个 mode 指针获取到最终的值。代码运行流程如下图所示。
 
-![&#x56FE;&#xFF1A;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x4E0E;&#x53D8;&#x91CF;&#x7684;&#x5173;&#x7CFB;](../../.gitbook/assets/image%20%289%29.png)
+![&#x56FE;&#xFF1A;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;&#x4E0E;&#x53D8;&#x91CF;&#x7684;&#x5173;&#x7CFB;](../../.gitbook/assets/image%20%2812%29.png)
 
 
 
