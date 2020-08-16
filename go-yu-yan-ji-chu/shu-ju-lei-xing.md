@@ -23,6 +23,22 @@
 
 字符串string较为特殊，我们放在后面单独讲解一下[字符串](zi-fu-chuan/)。
 
+```go
+var a bool = true
+var b int = 1
+var c int8 = 127
+var d byte = 'a'
+var e int16 = 32767
+var f int32
+var g int64
+var h float32 = 2.5
+var i float64
+var j complex64 = complex(3,4) //32位实数和虚数
+real := real(j) //实部 3
+imag := imag(j)//虚部 4
+var h complex128
+```
+
 ## 引用类型
 
 | 类型名称 | 默认值 | 说明 |

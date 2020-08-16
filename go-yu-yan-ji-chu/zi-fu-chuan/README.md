@@ -88,6 +88,33 @@ fmt.Println(s) //输出 “hello, world!”
 	fmt.Println()
 ```
 
+还需要注意的是，在go语言中如何获取中文字符串的长度。
+
+```go
+func main() {
+	str := "Go语言你好"
+	fmt.Println(len(str))
+}
+
+//输出
+14
+```
+
+这里可以看到字符串的输出长度是14，直觉来说字符串的长度应该是6，这里的差异是由于 Go 语言的字符串都以 UTF-8 格式保存，每个中文占用 3 个字节，因此使用 len\(\) 获得中文文字对应的 12 个字节加上Go对应的两个字节。
+
+如果想要获取中文数量需要使用以下方法
+
+```go
+func main() {
+	str := "Go语言你好"
+	fmt.Println(len(str))
+	fmt.Println(utf8.RuneCountInString(str))
+}
+//输出
+14
+6
+```
+
 ## 从字符串生成字节切片
 
 假设 s 是一个字符串（本质上是一个字节数组），那么就可以直接通过 `c := []byte(s)` 来获取一个字节的切片 c。另外，您还可以通过 copy 函数来达到相同的目的：`copy(dst []byte, src string)`。
