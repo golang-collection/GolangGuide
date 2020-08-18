@@ -1,6 +1,8 @@
 # GolangGuide
 
-![](.gitbook/assets/7th_birthday.png)
+## Golang发展历史
+
+![](.gitbook/assets/image%20%2813%29.png)
 
 ## 项目介绍
 
