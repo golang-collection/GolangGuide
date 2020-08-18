@@ -92,6 +92,7 @@
 * [XML操作](go-yu-yan-jin-jie/xml-cao-zuo.md)
 * [正则表达式](go-yu-yan-jin-jie/zheng-ze-biao-da-shi.md)
 * [并发相关](go-yu-yan-jin-jie/bing-fa-xiang-guan/README.md)
+  * [context](go-yu-yan-jin-jie/bing-fa-xiang-guan/context.md)
   * [惰性求值](go-yu-yan-jin-jie/bing-fa-xiang-guan/duo-xing-qiu-zhi.md)
 * [网络相关](go-yu-yan-jin-jie/wang-luo-xiang-guan/README.md)
   * [socket](go-yu-yan-jin-jie/wang-luo-xiang-guan/socket.md)
@@ -138,4 +139,5 @@
 * [有趣代码段](you-qu-dai-ma-duan.md)
 * [参考文献](can-kao-wen-xian.md)
 * [推荐资源](tui-jian-zi-yuan.md)
+* [笔试面经](bi-shi-mian-jing.md)
 
