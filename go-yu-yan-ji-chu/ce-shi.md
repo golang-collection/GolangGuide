@@ -175,9 +175,26 @@ testing 包中有一些类型和函数可以用来做简单的基准测试；测
 
 ```go
 func BenchmarkReverse(b *testing.B) {
-	...
+	for i := 0; i<b.N; i++{
+		_, _ = AesEncrypt("hello world", "123456781234567812345678")
+	}
 }
 ```
 
 命令 `go test –test.bench=.*` 会运行所有的基准测试函数；代码中的函数会被调用 N 次（N是非常大的数，如 N = 1000000），并展示 N 的值和函数执行的平均时间，单位为 ns（纳秒，ns/op）。如果是用 testing.Benchmark 调用这些函数，直接运行程序即可。
+
+```go
+BenchmarkAesEncrypt-8   	 1642801	       720 ns/op
+PASS
+```
+
+## 代码覆盖率
+
+单元测试和性能测试可以看作是测试代码的质量，那么代码覆盖率就是测试代码的编写质量，检查测试代码是否覆盖了足够多的分支语句等。
+
+但是测试还是要以质量为主，而不能过分的追求代码的覆盖率。
+
+![](../.gitbook/assets/image%20%2814%29.png)
+
+
 
