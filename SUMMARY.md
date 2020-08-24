@@ -101,6 +101,7 @@
 * [并发相关](go-yu-yan-jin-jie/bing-fa-xiang-guan/README.md)
   * [context](go-yu-yan-jin-jie/bing-fa-xiang-guan/context.md)
   * [惰性求值](go-yu-yan-jin-jie/bing-fa-xiang-guan/duo-xing-qiu-zhi.md)
+* [GPM模型](go-yu-yan-jin-jie/gpm-mo-xing.md)
 * [网络相关](go-yu-yan-jin-jie/wang-luo-xiang-guan/README.md)
   * [socket](go-yu-yan-jin-jie/wang-luo-xiang-guan/socket.md)
   * [小型爬虫](go-yu-yan-jin-jie/wang-luo-xiang-guan/xiao-xing-pa-chong.md)
