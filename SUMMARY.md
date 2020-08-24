@@ -85,7 +85,9 @@
   * [空接口](go-yu-yan-ji-chu/jie-kou/kong-jie-kou.md)
   * [error接口](go-yu-yan-ji-chu/jie-kou/error-jie-kou.md)
   * [Sorter接口排序](go-yu-yan-ji-chu/jie-kou/sorter-jie-kou-pai-xu.md)
-* [测试](go-yu-yan-ji-chu/ce-shi.md)
+* [测试](go-yu-yan-ji-chu/ce-shi/README.md)
+  * [断言](go-yu-yan-ji-chu/ce-shi/duan-yan.md)
+  * [BDD](go-yu-yan-ji-chu/ce-shi/bdd.md)
 
 ## Go语言进阶
 
