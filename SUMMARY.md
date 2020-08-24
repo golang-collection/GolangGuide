@@ -170,6 +170,7 @@
 
 * [分布式爬虫](xiang-mu-shi-zhan/untitled.md)
 * [微服务架构](xiang-mu-shi-zhan/wei-fu-wu-jia-gou.md)
+* [superTools](xiang-mu-shi-zhan/supertools.md)
 * [推荐资源](xiang-mu-shi-zhan/tui-jian-zi-yuan.md)
 
 ---
