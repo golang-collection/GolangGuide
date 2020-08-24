@@ -50,6 +50,7 @@
   * [编码相关](go-yu-yan-ji-chu/zi-fu-chuan/bian-ma-xiang-guan.md)
   * [strings包](go-yu-yan-ji-chu/zi-fu-chuan/strings.md)
   * [strconv包](go-yu-yan-ji-chu/zi-fu-chuan/strconv-bao.md)
+  * [字符串拼接](go-yu-yan-ji-chu/zi-fu-chuan/zi-fu-chuan-pin-jie.md)
 * [数组](go-yu-yan-ji-chu/shu-zu/README.md)
   * [指针数组与数组指针](go-yu-yan-ji-chu/shu-zu/zhi-zhen-shu-zu-yu-shu-zu-zhi-zhen.md)
   * [搜索及排序切片和数组](go-yu-yan-ji-chu/shu-zu/sou-suo-ji-pai-xu-qie-pian-he-shu-zu.md)
@@ -88,6 +89,8 @@
 * [测试](go-yu-yan-ji-chu/ce-shi/README.md)
   * [断言](go-yu-yan-ji-chu/ce-shi/duan-yan.md)
   * [BDD](go-yu-yan-ji-chu/ce-shi/bdd.md)
+* [性能分析](go-yu-yan-ji-chu/xing-neng-fen-xi/README.md)
+  * [性能调优](go-yu-yan-ji-chu/xing-neng-fen-xi/xing-neng-tiao-you.md)
 
 ## Go语言进阶
 
@@ -100,6 +103,7 @@
 * [时间处理](go-yu-yan-jin-jie/shi-jian-chu-li.md)
 * [json操作](go-yu-yan-jin-jie/json-cao-zuo/README.md)
   * [根据json生成结构体](go-yu-yan-jin-jie/json-cao-zuo/gen-ju-json-sheng-cheng-jie-gou-ti.md)
+  * [easyjson](go-yu-yan-jin-jie/json-cao-zuo/easyjson.md)
 * [XML操作](go-yu-yan-jin-jie/xml-cao-zuo.md)
 * [正则表达式](go-yu-yan-jin-jie/zheng-ze-biao-da-shi.md)
 * [并发相关](go-yu-yan-jin-jie/bing-fa-xiang-guan/README.md)
@@ -109,17 +113,27 @@
   * [对象池](go-yu-yan-jin-jie/bing-fa-xiang-guan/dui-xiang-chi.md)
 * [Sync包与锁](go-yu-yan-jin-jie/sync-bao-yu-suo/README.md)
   * [Sync.Pool](go-yu-yan-jin-jie/sync-bao-yu-suo/sync.pool.md)
+  * [Mutex](go-yu-yan-jin-jie/sync-bao-yu-suo/mutex.md)
+  * [RWMutex](go-yu-yan-jin-jie/sync-bao-yu-suo/rwmutex.md)
 * [GPM模型](go-yu-yan-jin-jie/gpm-mo-xing.md)
 * [网络相关](go-yu-yan-jin-jie/wang-luo-xiang-guan/README.md)
+  * [Get,POST,DELETE等](go-yu-yan-jin-jie/wang-luo-xiang-guan/getpostdelete-deng.md)
   * [socket](go-yu-yan-jin-jie/wang-luo-xiang-guan/socket.md)
+  * [构建Restful服务](go-yu-yan-jin-jie/wang-luo-xiang-guan/gou-jian-restful-fu-wu.md)
   * [小型爬虫](go-yu-yan-jin-jie/wang-luo-xiang-guan/xiao-xing-pa-chong.md)
 * [密码学](go-yu-yan-jin-jie/mi-ma-xue/README.md)
   * [base64](go-yu-yan-jin-jie/mi-ma-xue/base64.md)
-* [反射相关](go-yu-yan-jin-jie/fan-she-xiang-guan.md)
+* [反射相关](go-yu-yan-jin-jie/fan-she-xiang-guan/README.md)
+  * [比较map和切片](go-yu-yan-jin-jie/fan-she-xiang-guan/bi-jiao-map-he-qie-pian.md)
+  * [反射填充结构体](go-yu-yan-jin-jie/fan-she-xiang-guan/fan-she-tian-chong-jie-gou-ti.md)
+* [unsafe](go-yu-yan-jin-jie/unsafe.md)
 * [连接池](go-yu-yan-jin-jie/lian-jie-chi.md)
 * [GC](go-yu-yan-jin-jie/gc/README.md)
   * [Untitled](go-yu-yan-jin-jie/gc/untitled.md)
 * [cgo](go-yu-yan-jin-jie/cgo.md)
+* [架构模式](go-yu-yan-jin-jie/jia-gou-mo-shi/README.md)
+  * [pipe-filter](go-yu-yan-jin-jie/jia-gou-mo-shi/pipe-filter.md)
+  * [micro-kernel](go-yu-yan-jin-jie/jia-gou-mo-shi/micro-kernel.md)
 
 ## 常用框架
 
