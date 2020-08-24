@@ -150,6 +150,7 @@
 * [viper](chang-yong-kuang-jia/viper.md)
 * [zap](chang-yong-kuang-jia/zap.md)
 * [go-micro](chang-yong-kuang-jia/go-micro.md)
+* [service\_decorators](chang-yong-kuang-jia/service_decorators.md)
 * [Task](chang-yong-kuang-jia/task.md)
 
 ## 分布式操作
