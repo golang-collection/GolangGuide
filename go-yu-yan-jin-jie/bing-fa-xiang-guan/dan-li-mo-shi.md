@@ -31,7 +31,7 @@ func TestGetSingletonObj(t *testing.T) {
 		wg.Add(1)
 		go func() {
 			obj := GetSingletonObj()
-			fmt.Printf("%X\n", unsafe.Pointer(obj))
+			fmt.Printf("%p\n", obj)
 			wg.Done()
 		}()
 	}
