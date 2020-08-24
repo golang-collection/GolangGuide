@@ -131,6 +131,7 @@
 * [连接池](go-yu-yan-jin-jie/lian-jie-chi.md)
 * [GC](go-yu-yan-jin-jie/gc/README.md)
   * [Untitled](go-yu-yan-jin-jie/gc/untitled.md)
+  * [GC友好的代码](go-yu-yan-jin-jie/gc/gc-you-hao-de-dai-ma.md)
 * [cgo](go-yu-yan-jin-jie/cgo.md)
 * [架构模式](go-yu-yan-jin-jie/jia-gou-mo-shi/README.md)
   * [pipe-filter](go-yu-yan-jin-jie/jia-gou-mo-shi/pipe-filter.md)
