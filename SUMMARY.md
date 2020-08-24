@@ -4,6 +4,7 @@
 * [Gophers](gophers.md)
 * [安装](an-zhuang/README.md)
   * [Mac OS](an-zhuang/mac-os.md)
+  * [Go palyground](an-zhuang/go-palyground.md)
 * [Go 环境变量](go-huan-jing-bian-liang.md)
 * [常用命令](chang-yong-ming-ling/README.md)
   * [go build](chang-yong-ming-ling/go-build.md)
