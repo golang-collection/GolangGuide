@@ -24,6 +24,9 @@ func TestSyncPool(t *testing.T) {
 	runtime.GC() //GC 会清除sync.pool中缓存的对象，所以不适合做为对象池
 	v1, _ := pool.Get().(int)
 	fmt.Println(v1)
+	//新创建的v1并不会自动放入pool，通过put才可以
+	v2, _ := pool.Get().(int)
+	fmt.Println(v2)
 }
 
 func TestSyncPoolInMultiGroutine(t *testing.T) {
