@@ -6,7 +6,7 @@
 * 只有package **名称为main的包**可以包含main函数
 * 一个可执行程序**有且仅有**一个main包 _初步练习时可以使用这种结构_ 
 
-![&#x521D;&#x6B65;&#x7EC3;&#x4E60;](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMTI5MTE1NTAwODQ2?x-oss-process=image/format,png)
+![&#x7EC3;&#x4E60;](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMTI5MTE1NTAwODQ2?x-oss-process=image/format,png)
 
 ## 程序结构
 
@@ -41,11 +41,12 @@ func main(){
 但是如果你嫌这样写多个import比较麻烦可以这样写  
 
 
-![daobao](https://img-blog.csdnimg.cn/20190916211531580.png)
+![&#x5BFC;&#x5305;](https://img-blog.csdnimg.cn/20190916211531580.png)
 
 ## package的别名
 
-在go语言中我们导包的过程中为了 防止第三包可能会引起冲突，或者为了增强代码的可读性，我们可以使用别名来进行区分。  
+在go语言中我们导包的过程中为了 防止第三包可能会引起冲突，或者为了增强代码的可读性，我们可以使用别名来进行区分。
+
 例如：  
 
 

@@ -32,7 +32,7 @@ func (tn *TwoInts) String() string {
 
 输出：
 
-```text
+```go
 two1 is: (12/10)
 two1 is: (12/10)
 two1 is: *main.TwoInts

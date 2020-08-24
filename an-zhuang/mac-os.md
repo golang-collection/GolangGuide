@@ -20,8 +20,9 @@
 
  安装完成之后，在终端运行 `go version`，如果显示类似下面的信息，表明安装成功。
 
-```text
-go version go1.13.4 darwin/amd64
+```bash
+go version
+go 1.13.4 darwin/amd64
 ```
 
 

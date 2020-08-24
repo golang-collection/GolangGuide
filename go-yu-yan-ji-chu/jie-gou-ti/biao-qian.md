@@ -4,7 +4,7 @@
 
 给结构体打tag例如下面这样。
 
-```text
+```go
 type Activity struct {
 	ActivityId int `gorm:"column:activity_id" gorm:"PRIMARY_KEY" json:"activity_id"`
 	PlayerId int `gorm:"column:player_id" json:"player_id"`

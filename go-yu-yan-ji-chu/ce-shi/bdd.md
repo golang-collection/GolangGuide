@@ -1,18 +1,12 @@
 # BDD
 
+## 安装
 
+{% embed url="https://github.com/smartystreets/goconvey" %}
 
+## 使用
 
-
-
-
-## 包
-
-[https://github.com/smartystreets/goconvey](https://github.com/smartystreets/goconvey)
-
-
-
-```text
+```go
 import (
 	"testing"
 
@@ -36,4 +30,22 @@ func TestSpec(t *testing.T) {
 	})
 }
 ```
+
+## 浏览器观察
+
+```go
+$GOPATH/bin/goconvey
+```
+
+打开浏览器：[http://localhost:8080](http://localhost:8080)
+
+![](../../.gitbook/assets/image%20%2817%29.png)
+
+## BDD
+
+{% embed url="https://medium.com/javascript-scene/behavior-driven-development-bdd-and-functional-testing-62084ad7f1f2" %}
+
+{% embed url="https://blog.csdn.net/chancein007/article/details/77543494" %}
+
+
 

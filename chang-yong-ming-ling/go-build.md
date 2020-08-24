@@ -34,7 +34,9 @@ GOOS：目标平台的操作系统（darwin、freebsd、linux、windows）
  GOARCH：目标平台的体系架构（386、amd64、arm）  
  交叉编译不支持 CGO 所以要禁用它
 
-参考文献
+## 参考文献
 
-\[1\] [https://blog.csdn.net/panshiqu/article/details/53788067](https://blog.csdn.net/panshiqu/article/details/53788067)
+{% embed url="https://blog.csdn.net/panshiqu/article/details/53788067" %}
+
+
 
