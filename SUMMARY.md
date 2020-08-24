@@ -63,6 +63,8 @@
   * [map的排序](go-yu-yan-ji-chu/zi-dian/map-de-pai-xu.md)
   * [将map的键值对调](go-yu-yan-ji-chu/zi-dian/jiang-map-de-jian-zhi-dui-tiao.md)
   * [sync.Map](go-yu-yan-ji-chu/zi-dian/sync.map.md)
+  * [函数类型做为值](go-yu-yan-ji-chu/zi-dian/han-shu-lei-xing-zuo-wei-zhi.md)
+  * [使用map实现set](go-yu-yan-ji-chu/zi-dian/shi-yong-map-shi-xian-set.md)
 * [math包](go-yu-yan-ji-chu/math-bao/README.md)
   * [big包](go-yu-yan-ji-chu/math-bao/big-bao.md)
 * [container包](go-yu-yan-ji-chu/container-bao/README.md)

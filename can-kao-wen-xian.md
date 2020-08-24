@@ -18,3 +18,7 @@
 
 \[9\] effective-go-zh-en：[https://github.com/bingohuang/effective-go-zh-en](https://github.com/bingohuang/effective-go-zh-en)
 
+\[10\] [Go语言核心36讲](https://time.geekbang.org/column/intro/112)
+
+
+
