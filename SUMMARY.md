@@ -104,6 +104,7 @@
   * [context](go-yu-yan-jin-jie/bing-fa-xiang-guan/context.md)
   * [惰性求值](go-yu-yan-jin-jie/bing-fa-xiang-guan/duo-xing-qiu-zhi.md)
   * [单例模式](go-yu-yan-jin-jie/bing-fa-xiang-guan/dan-li-mo-shi.md)
+  * [对象池](go-yu-yan-jin-jie/bing-fa-xiang-guan/dui-xiang-chi.md)
 * [GPM模型](go-yu-yan-jin-jie/gpm-mo-xing.md)
 * [网络相关](go-yu-yan-jin-jie/wang-luo-xiang-guan/README.md)
   * [socket](go-yu-yan-jin-jie/wang-luo-xiang-guan/socket.md)
