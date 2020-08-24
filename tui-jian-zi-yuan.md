@@ -8,3 +8,11 @@
 
 \[4\] Gopher Reading List：[https://github.com/enocom/gopher-reading-list](https://github.com/enocom/gopher-reading-list)
 
+
+
+## 博客
+
+\[1\] [http://xiaorui.cc/](http://xiaorui.cc/)
+
+\[2\] [https://eddycjy.com/](https://eddycjy.com/)
+
