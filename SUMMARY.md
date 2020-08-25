@@ -110,6 +110,8 @@
 * [XML操作](go-yu-yan-jin-jie/xml-cao-zuo.md)
 * [正则表达式](go-yu-yan-jin-jie/zheng-ze-biao-da-shi.md)
 * [并发相关](go-yu-yan-jin-jie/bing-fa-xiang-guan/README.md)
+  * [线程，进程，协程， 并发，并行，同步，异步概念解析](go-yu-yan-jin-jie/bing-fa-xiang-guan/xian-cheng-jin-cheng-xie-cheng-bing-fa-bing-hang-tong-bu-yi-bu-gai-nian-jie-xi.md)
+  * [通道](go-yu-yan-jin-jie/bing-fa-xiang-guan/tong-dao.md)
   * [context](go-yu-yan-jin-jie/bing-fa-xiang-guan/context.md)
   * [惰性求值](go-yu-yan-jin-jie/bing-fa-xiang-guan/duo-xing-qiu-zhi.md)
   * [单例模式](go-yu-yan-jin-jie/bing-fa-xiang-guan/dan-li-mo-shi.md)
