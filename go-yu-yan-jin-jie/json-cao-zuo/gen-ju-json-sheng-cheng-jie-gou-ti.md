@@ -1,8 +1,10 @@
 # 根据json生成结构体
 
+通过在线网站
 
+{% embed url="https://mholt.github.io/json-to-go/" %}
 
-## 参考文献
+可以将json文件生成对应的结构体
 
-\[1\] [https://mholt.github.io/json-to-go/](https://mholt.github.io/json-to-go/)
+![](../../.gitbook/assets/image%20%2818%29.png)
 
