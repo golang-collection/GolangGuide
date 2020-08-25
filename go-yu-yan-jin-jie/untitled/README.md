@@ -1,6 +1,6 @@
 # 文件操作
 
-转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/12.2.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/12.2.md)
+转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/12.2.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/12.2.md) by unknown
 
 ## 读文件
 
