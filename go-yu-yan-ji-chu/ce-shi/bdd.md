@@ -39,7 +39,7 @@ $GOPATH/bin/goconvey
 
 打开浏览器：[http://localhost:8080](http://localhost:8080)
 
-![](../../.gitbook/assets/image%20%2817%29.png)
+![](../../.gitbook/assets/image%20%2821%29.png)
 
 ## BDD
 

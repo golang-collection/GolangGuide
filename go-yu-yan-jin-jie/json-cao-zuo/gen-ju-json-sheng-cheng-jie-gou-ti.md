@@ -6,5 +6,5 @@
 
 可以将json文件生成对应的结构体
 
-![](../../.gitbook/assets/image%20%2818%29.png)
+![](../../.gitbook/assets/image%20%2822%29.png)
 

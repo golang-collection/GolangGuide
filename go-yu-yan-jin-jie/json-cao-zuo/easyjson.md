@@ -20,7 +20,7 @@ easyjson -all <file>.go
 
 其中file是对应的结构体所在的文件。执行完命令后会自动生成一个文件。
 
-![](../../.gitbook/assets/image%20%2819%29.png)
+![](../../.gitbook/assets/image%20%2823%29.png)
 
 ```go
 import (
