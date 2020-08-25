@@ -55,7 +55,7 @@ fibonacci(10) is: 89
 
 ## 栈溢出
 
-在使用递归函数时经常会遇到的一个重要问题就是栈溢出：一般出现在大量的递归调用导致的程序栈内存分配耗尽。这个问题可以通过一个名为[懒惰求值](https://zh.wikipedia.org/wiki/%E6%83%B0%E6%80%A7%E6%B1%82%E5%80%BC)的技术解决，在 Go 语言中，我们可以使用[管道（channel）和 goroutine来实现](../../go-yu-yan-jin-jie/bing-fa-xiang-guan/duo-xing-qiu-zhi.md)。
+在使用递归函数时经常会遇到的一个重要问题就是栈溢出：一般出现在大量的递归调用导致的程序栈内存分配耗尽。这个问题可以通过一个名为[懒惰求值](https://zh.wikipedia.org/wiki/%E6%83%B0%E6%80%A7%E6%B1%82%E5%80%BC)的技术解决，在 Go 语言中，我们可以使用[管道（channel）和 goroutine来实现](../../go-yu-yan-jin-jie/bing-fa-xiang-guan/duo-xing-qiu-zhi/)。
 
 ## 相互调用
 
