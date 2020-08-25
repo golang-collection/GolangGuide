@@ -57,3 +57,54 @@ func main() {
 
 如果你需要在应用程序在经过一定时间或周期执行某项任务（事件处理的特例），则可以使用 `time.After` 或者 `time.Ticker`。 另外，`time.Sleep（d Duration）` 可以实现对某个进程（实质上是 goroutine）时长为 d 的暂停。
 
+## 常用操作
+
+```go
+//获取当前时间
+func GetNowTime() string {
+	t := time.Now()
+	return t.String()
+}
+
+//获取当前的时间戳
+func GetTimeStamp() int64 {
+	unix := time.Now().Unix()
+	return unix
+}
+
+//格式化时间
+func GetTimeFormat() string {
+	t := time.Now().Format("2006-01-02 15:04:05")
+	return t
+}
+
+//时间戳转时间
+func StampToTime() string {
+	unix := time.Now().Unix()
+	format := time.Unix(unix, 0).Format("2006-01-02 15:04:05")
+	return format
+}
+
+//字符串转时间
+func ParseToTime(str string) (string, error) {
+	loc, _ := time.LoadLocation("Local")
+	formatTime,err:=time.ParseInLocation("2006-01-02 15:04:05",str,loc)
+
+	if err!=nil{
+		return "", err
+	}
+	return formatTime.String(), nil
+}
+
+//字符串转时间戳
+func ParseToTimeStamp(str string) (int64, error) {
+	loc, _ := time.LoadLocation("Local")
+	formatTime,err:=time.ParseInLocation("2006-01-02 15:04:05",str,loc)
+
+	if err!=nil{
+		return 0, err
+	}
+	return formatTime.Unix(), nil
+}
+```
+

@@ -102,7 +102,6 @@
   * [读取文件对比](go-yu-yan-jin-jie/untitled/untitled.md)
 * [os包](go-yu-yan-jin-jie/os-bao.md)
 * [flag包](go-yu-yan-jin-jie/args-bao.md)
-* [I/O操作](go-yu-yan-jin-jie/io-cao-zuo.md)
 * [时间处理](go-yu-yan-jin-jie/shi-jian-chu-li.md)
 * [json操作](go-yu-yan-jin-jie/json-cao-zuo/README.md)
   * [根据json生成结构体](go-yu-yan-jin-jie/json-cao-zuo/gen-ju-json-sheng-cheng-jie-gou-ti.md)
