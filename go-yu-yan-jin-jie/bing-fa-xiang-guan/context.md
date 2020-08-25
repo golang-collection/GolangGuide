@@ -90,7 +90,7 @@ handle context deadline exceeded
 
 相信这两个例子能够帮助各位读者理解 [`context.Context`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L62-L154) 的使用方法和设计原理 — 多个 Goroutine 同时订阅 `ctx.Done()` 管道中的消息，一旦接收到取消信号就立刻停止当前正在执行的工作。
 
-## 6.1.2 默认上下文 <a id="612-&#x9ED8;&#x8BA4;&#x4E0A;&#x4E0B;&#x6587;"></a>
+## 默认上下文 <a id="612-&#x9ED8;&#x8BA4;&#x4E0A;&#x4E0B;&#x6587;"></a>
 
 [`context`](https://github.com/golang/go/tree/master/src/context) 包中最常用的方法还是 [`context.Background`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L208-L210)、[`context.TODO`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L216-L218)，这两个方法都会返回预先初始化好的私有变量 `background` 和 `todo`，它们会在同一个 Go 程序中被复用：
 
@@ -139,7 +139,7 @@ func (*emptyCtx) Value(key interface{}) interface{} {
 
 在多数情况下，如果当前函数没有上下文作为入参，我们都会使用 [`context.Background`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L208-L210) 作为起始的上下文向下传递。
 
-## 6.1.3 取消信号 <a id="613-&#x53D6;&#x6D88;&#x4FE1;&#x53F7;"></a>
+## 取消信号 <a id="613-&#x53D6;&#x6D88;&#x4FE1;&#x53F7;"></a>
 
 [`context.WithCancel`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L232-L236) 函数能够从 [`context.Context`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L62-L154) 中衍生出一个新的子上下文并返回用于取消该上下文的函数（CancelFunc）。一旦我们执行返回的取消函数，当前上下文以及它的子上下文都会被取消，所有的 Goroutine 都会同步收到这一取消信号。
 
@@ -296,7 +296,7 @@ func (c *timerCtx) cancel(removeFromParent bool, err error) {
 
 [`context.timerCtx.cancel`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L472-L484) 方法不仅调用了 [`context.cancelCtx.cancel`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L391-L416)，还会停止持有的定时器减少不必要的资源浪费。
 
-## 6.1.4 传值方法 <a id="614-&#x4F20;&#x503C;&#x65B9;&#x6CD5;"></a>
+## 传值方法 <a id="614-&#x4F20;&#x503C;&#x65B9;&#x6CD5;"></a>
 
 在最后我们需要了解如何使用上下文传值，[`context`](https://github.com/golang/go/tree/master/src/context) 包中的 [`context.WithValue`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L513-L521) 函数能从父上下文中创建一个子上下文，传值的子上下文使用 [`context.valueCtx`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L525-L528) 类型：
 
@@ -330,13 +330,13 @@ func (c *valueCtx) Value(key interface{}) interface{} {
 
 如果 [`context.valueCtx`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L525-L528) 中存储的键值对与 [`context.valueCtx.Value`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L549-L554) 方法中传入的参数不匹配，就会从父上下文中查找该键对应的值直到在某个父上下文中返回 `nil` 或者查找到对应的值。
 
-## 6.1.5 小结 <a id="615-&#x5C0F;&#x7ED3;"></a>
+## 小结 <a id="615-&#x5C0F;&#x7ED3;"></a>
 
 Go 语言中的 [`context.Context`](https://github.com/golang/go/blob/71bbffbc48d03b447c73da1f54ac57350fc9b36a/src/context/context.go#L62-L154) 的主要作用还是在多个 Goroutine 组成的树中同步取消信号以减少对资源的消耗和占用，虽然它也有传值的功能，但是这个功能我们还是很少用到。
 
 在真正使用传值的功能时我们也应该非常谨慎，使用 [`context.Context`](https://github.com/golang/go/blob/71bbffbc48d03b447c73da1f54ac57350fc9b36a/src/context/context.go#L62-L154) 进行传递参数请求的所有参数一种非常差的设计，比较常见的使用场景是传递请求对应用户的认证令牌以及用于进行分布式追踪的请求 ID。
 
-## 6.1.6 延伸阅读 <a id="616-&#x5EF6;&#x4F38;&#x9605;&#x8BFB;"></a>
+## 延伸阅读 <a id="616-&#x5EF6;&#x4F38;&#x9605;&#x8BFB;"></a>
 
 * [Package context · Golang](https://golang.org/pkg/context/)
 * [Go Concurrency Patterns: Context](https://blog.golang.org/context)
