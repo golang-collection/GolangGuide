@@ -158,6 +158,7 @@
   * [生成go代码](chang-yong-kuang-jia/gorm-mysql/sheng-cheng-go-dai-ma.md)
 * [Redis](chang-yong-kuang-jia/redis.md)
 * [RabbitMQ](chang-yong-kuang-jia/rabbitmq.md)
+* [swagger](chang-yong-kuang-jia/swagger.md)
 * [gin](chang-yong-kuang-jia/gin/README.md)
   * [跨域访问](chang-yong-kuang-jia/gin/kua-yu-fang-wen.md)
 * [RPC](chang-yong-kuang-jia/rpc/README.md)
