@@ -1,6 +1,10 @@
 # make
 
-转载自：[http://c.biancheng.net/makefile/](http://c.biancheng.net/makefile/)
+## 官网
+
+{% embed url="https://www.gnu.org/software/make/" %}
+
+以下内容转载自：[http://c.biancheng.net/makefile/](http://c.biancheng.net/makefile/)
 
 ## 什么是Makefile
 
