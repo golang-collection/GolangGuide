@@ -12,11 +12,19 @@
 
 ## 博客
 
-\[1\] [http://xiaorui.cc/](http://xiaorui.cc/)
+{% embed url="http://xiaorui.cc/" %}
 
-\[2\] [https://eddycjy.com/](https://eddycjy.com/)
+{% embed url="https://eddycjy.com/" %}
 
-\[3\] [https://www.flysnow.org/](https://www.flysnow.org/)
+{% embed url="https://www.flysnow.org/" %}
 
-\[4\] [https://draveness.me/](https://draveness.me/)
+{% embed url="https://draveness.me/" %}
+
+{% embed url="https://tonybai.com/" %}
+
+{% embed url="https://colobu.com/" %}
+
+{% embed url="https://unknwon.cn/" %}
+
+
 
