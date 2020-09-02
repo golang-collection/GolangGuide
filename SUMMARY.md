@@ -199,7 +199,6 @@
 ---
 
 * [Go语言常见坑](go-yu-yan-chang-jian-keng.md)
-* [有趣代码段](you-qu-dai-ma-duan.md)
 * [笔试面经](bi-shi-mian-jing.md)
 * [参考文献](can-kao-wen-xian.md)
 * [推荐资源](tui-jian-zi-yuan.md)
