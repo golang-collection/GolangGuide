@@ -34,3 +34,9 @@ _为了更清晰的代码，应该总是使用包含错误值变量的 if 复合
 
 上例除了 `fmt.Printf` 还可以使用日志输出，如果程序中止也没关系的话甚至可以使用 `panic`。
 
+## 推荐阅读
+
+{% embed url="https://mp.weixin.qq.com/s/KPrzPP797efFUKOTTfY1Ow" %}
+
+
+
