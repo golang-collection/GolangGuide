@@ -20,6 +20,8 @@
 
 \[10\] [Go语言核心36讲](https://time.geekbang.org/column/intro/112)
 
+\[11\] [《深入学习Go语言》](https://github.com/ffhelicopter/Go42)
+
 
 
 
