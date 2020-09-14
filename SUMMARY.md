@@ -192,6 +192,7 @@
 
 * [项目规范](xiang-mu-shi-zhan/xiang-mu-gui-fan.md)
 * [目录结构](xiang-mu-shi-zhan/mu-lu-jie-gou.md)
+* [项目依赖展示](xiang-mu-shi-zhan/xiang-mu-yi-lai-zhan-shi.md)
 * [分布式爬虫](xiang-mu-shi-zhan/untitled.md)
 * [RestfulAPI](xiang-mu-shi-zhan/restfulapi.md)
 * [微服务架构](xiang-mu-shi-zhan/wei-fu-wu-jia-gou.md)
