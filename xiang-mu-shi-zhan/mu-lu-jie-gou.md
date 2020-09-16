@@ -17,7 +17,7 @@ Check out our blog to know how to use Golang API Skeleton with Fully Managed Ver
 
 ### STRUCTURE
 
-[![](https://raw.githubusercontent.com/Mindinventory/Golang-Project-Structure/master/structure.png)](https://raw.githubusercontent.com/Mindinventory/Golang-Project-Structure/master/structure.png)
+![](https://raw.githubusercontent.com/Mindinventory/Golang-Project-Structure/master/structure.png)
 
 ### What it is?
 
