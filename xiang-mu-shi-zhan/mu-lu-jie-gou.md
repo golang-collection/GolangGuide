@@ -29,7 +29,7 @@ One need to install the latest version of Go i.e 1.12 \(Released in Feb 2019\) f
 
 ### Components
 
-[![](https://raw.githubusercontent.com/Mindinventory/Golang-Project-Structure/master/gif.gif)](https://raw.githubusercontent.com/Mindinventory/Golang-Project-Structure/master/gif.gif)
+![](https://raw.githubusercontent.com/Mindinventory/Golang-Project-Structure/master/gif.gif)
 
 #### 1. ApiHelpers
 
