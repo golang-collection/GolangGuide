@@ -211,7 +211,8 @@
 
 ---
 
-* [Go语言常见坑](go-yu-yan-chang-jian-keng.md)
+* [Go语言常见坑](go-yu-yan-chang-jian-keng/README.md)
+  * [Go在容器运行的注意事项](go-yu-yan-chang-jian-keng/go-zai-rong-qi-yun-hang-de-zhu-yi-shi-xiang.md)
 * [笔试面经](bi-shi-mian-jing.md)
 * [参考文献](can-kao-wen-xian.md)
 * [推荐资源](tui-jian-zi-yuan.md)
