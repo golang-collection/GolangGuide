@@ -1,2 +1,2 @@
-# Get,POST,DELETE等
+# GET,POST,DELETE等
 
