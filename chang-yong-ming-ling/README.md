@@ -2,6 +2,8 @@
 
 ## Go命令教程
 
+来源：极客学院
+
 {% file src="../.gitbook/assets/go-ming-ling-jiao-cheng-v1.0.pdf" %}
 
 ## 参考文献

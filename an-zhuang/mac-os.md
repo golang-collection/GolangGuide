@@ -22,8 +22,6 @@
 
 ```bash
 go version
-go 1.13.4 darwin/amd64
+go version go1.13.6 darwin/amd64
 ```
-
-
 
