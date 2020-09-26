@@ -22,6 +22,8 @@
 
 \[11\] [《深入学习Go语言》](https://github.com/ffhelicopter/Go42)
 
+\[12\] [《Go专家编程》](https://www.bookstack.cn/read/GoExpertProgramming/README.md)
+
 
 
 
