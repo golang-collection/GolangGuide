@@ -9,6 +9,7 @@
 * [常用命令](chang-yong-ming-ling/README.md)
   * [go build](chang-yong-ming-ling/go-build.md)
 * [go mod](go-mod.md)
+* [生态](sheng-tai.md)
 
 ## Go语言基础
 
@@ -220,4 +221,5 @@
 * [笔试面经](bi-shi-mian-jing.md)
 * [参考文献](can-kao-wen-xian.md)
 * [推荐资源](tui-jian-zi-yuan.md)
+* [相关库](xiang-guan-ku.md)
 
