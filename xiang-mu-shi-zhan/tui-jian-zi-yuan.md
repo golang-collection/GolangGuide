@@ -1,14 +1,20 @@
 # 推荐资源
 
-\[1\] 7天用Go从零实现系列: [https://github.com/geektutu/7days-golang](https://github.com/geektutu/7days-golang)
+## 推荐的项目
 
-\[2\] [build-web-application-with-golang](https://github.com/astaxie/build-web-application-with-golang)
+{% embed url="https://github.com/geektutu/7days-golang" %}
 
-\[3\] Crawlab: [https://github.com/crawlab-team/crawlab](https://github.com/crawlab-team/crawlab)
+{% embed url="https://github.com/astaxie/build-web-application-with-golang" %}
 
-\[4\] 今日热榜：[https://github.com/tophubs/TopList](https://github.com/tophubs/TopList)
+{% embed url="https://github.com/crawlab-team/crawlab" %}
 
-\[5\] [gin-vue-admin](https://github.com/flipped-aurora/gin-vue-admin)
+{% embed url="https://github.com/tophubs/TopList" %}
+
+{% embed url="https://github.com/flipped-aurora/gin-vue-admin" %}
+
+{% embed url="https://github.com/blushft/go-diagrams" %}
+
+
 
 
 
