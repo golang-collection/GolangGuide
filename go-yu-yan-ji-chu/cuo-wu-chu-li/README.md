@@ -38,5 +38,7 @@ _为了更清晰的代码，应该总是使用包含错误值变量的 if 复合
 
 {% embed url="https://mp.weixin.qq.com/s/KPrzPP797efFUKOTTfY1Ow" %}
 
+{% embed url="https://blog.golang.org/defer-panic-and-recover" %}
+
 
 

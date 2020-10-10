@@ -249,3 +249,9 @@ append 非常有用，它能够用于各种方面的操作：
 
 因此，您可以使用切片和 append 操作来表示任意可变长度的序列。
 
+## 推荐阅读
+
+{% embed url="https://blog.golang.org/slices-intro" %}
+
+
+
