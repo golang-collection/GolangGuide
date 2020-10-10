@@ -180,19 +180,19 @@
 * [Task](chang-yong-kuang-jia/task.md)
 * [make](chang-yong-kuang-jia/make.md)
 
-## 分布式操作
+## 分布式微服务
 
-* [分布式ID生成器](fen-bu-shi-cao-zuo/fen-bu-shi-id-sheng-cheng-qi.md)
-* [分布式锁](fen-bu-shi-cao-zuo/fen-bu-shi-suo.md)
-* [分布式搜索引擎](fen-bu-shi-cao-zuo/fen-bu-shi-sou-suo-yin-qing.md)
-* [消息队列](fen-bu-shi-cao-zuo/xiao-xi-dui-lie.md)
-* [网关](fen-bu-shi-cao-zuo/wang-guan.md)
-* [反向代理](fen-bu-shi-cao-zuo/fan-xiang-dai-li.md)
-* [负载均衡](fen-bu-shi-cao-zuo/fu-zai-jun-heng.md)
-* [注册中心](fen-bu-shi-cao-zuo/zhu-ce-zhong-xin.md)
-* [配置中心](fen-bu-shi-cao-zuo/pei-zhi-zhong-xin.md)
-* [服务监控](fen-bu-shi-cao-zuo/fu-wu-jian-kong.md)
-* [服务追踪](fen-bu-shi-cao-zuo/fu-wu-zhui-zong.md)
+* [分布式ID生成器](fen-bu-shi-wei-fu-wu/fen-bu-shi-id-sheng-cheng-qi.md)
+* [分布式锁](fen-bu-shi-wei-fu-wu/fen-bu-shi-suo.md)
+* [分布式搜索引擎](fen-bu-shi-wei-fu-wu/fen-bu-shi-sou-suo-yin-qing.md)
+* [消息队列](fen-bu-shi-wei-fu-wu/xiao-xi-dui-lie.md)
+* [网关](fen-bu-shi-wei-fu-wu/wang-guan.md)
+* [反向代理](fen-bu-shi-wei-fu-wu/fan-xiang-dai-li.md)
+* [负载均衡](fen-bu-shi-wei-fu-wu/fu-zai-jun-heng.md)
+* [注册中心](fen-bu-shi-wei-fu-wu/zhu-ce-zhong-xin.md)
+* [配置中心](fen-bu-shi-wei-fu-wu/pei-zhi-zhong-xin.md)
+* [服务监控](fen-bu-shi-wei-fu-wu/fu-wu-jian-kong.md)
+* [服务追踪](fen-bu-shi-wei-fu-wu/fu-wu-zhui-zong.md)
 
 ## 项目实战
 
