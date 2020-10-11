@@ -44,6 +44,8 @@
   * [错误处理](go-yu-yan-ji-chu/cuo-wu-chu-li/cuo-wu-chu-li.md)
   * [运行时异常和 panic](go-yu-yan-ji-chu/cuo-wu-chu-li/yun-hang-shi-yi-chang-he-panic.md)
   * [异常恢复](go-yu-yan-ji-chu/cuo-wu-chu-li/yi-chang-hui-fu.md)
+  * [Promise模式](go-yu-yan-ji-chu/cuo-wu-chu-li/promise-mo-shi.md)
+  * [错误处理的最佳实践](go-yu-yan-ji-chu/cuo-wu-chu-li/cuo-wu-chu-li-de-zui-jia-shi-jian.md)
 * [常用内置函数](go-yu-yan-ji-chu/chang-yong-nei-zhi-han-shu.md)
 * [指针](go-yu-yan-ji-chu/zhi-zhen/README.md)
   * [指针详解](go-yu-yan-ji-chu/zhi-zhen/zhi-zhen-xiang-jie.md)
