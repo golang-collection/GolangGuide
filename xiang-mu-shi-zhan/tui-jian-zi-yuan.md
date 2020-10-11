@@ -16,6 +16,8 @@
 
 {% embed url="https://github.com/pibigstar/go-demo" %}
 
+{% embed url="https://github.com/micro-plat/hydra" %}
+
 
 
 
