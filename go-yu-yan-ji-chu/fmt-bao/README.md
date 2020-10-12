@@ -23,6 +23,8 @@ fmt 包的官方文档对 Printing 和 Scanning 有很详细的说明。这里�
 
 ### Sample
 
+{% embed url="https://books.studygolang.com/gobyexample/string-formatting/" %}
+
 ```go
 
 type user struct {
