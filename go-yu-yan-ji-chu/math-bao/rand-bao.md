@@ -28,5 +28,5 @@ func main() {
 12
 ```
 
-math/rand包生成随机数的算法不够安全，我们可以使用**crypto**的rand包。
+math/rand包生成随机数的算法不够安全，我们可以使用**crypto**的rand包，所谓的安全就是通过crypto/rand生成的随机内容更加的不可预测。
 
