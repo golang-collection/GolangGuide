@@ -72,6 +72,7 @@
   * [使用map实现set](go-yu-yan-ji-chu/zi-dian/shi-yong-map-shi-xian-set.md)
 * [math包](go-yu-yan-ji-chu/math-bao/README.md)
   * [big包](go-yu-yan-ji-chu/math-bao/big-bao.md)
+  * [rand包](go-yu-yan-ji-chu/math-bao/rand-bao.md)
 * [container包](go-yu-yan-ji-chu/container-bao/README.md)
   * [list](go-yu-yan-ji-chu/container-bao/list.md)
   * [ring](go-yu-yan-ji-chu/container-bao/ring.md)
