@@ -20,7 +20,7 @@
 
 该算法避免了在Goroutine调度时使用全局锁。模型结构如下：
 
-![&#x6765;&#x6E90;&#xFF1A;https://wudaijun.com/2018/01/go-scheduler/](../.gitbook/assets/image%20%2824%29.png)
+![&#x6765;&#x6E90;&#xFF1A;https://wudaijun.com/2018/01/go-scheduler/](../../.gitbook/assets/image%20%2824%29.png)
 
 ## 调度流程
 
@@ -35,6 +35,4 @@
 {% embed url="https://morsmachine.dk/go-scheduler" %}
 
 {% embed url="https://juejin.im/entry/6844903609813958669" %}
-
-
 
