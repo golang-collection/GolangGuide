@@ -96,6 +96,7 @@
 * [测试](go-yu-yan-ji-chu/ce-shi/README.md)
   * [断言](go-yu-yan-ji-chu/ce-shi/duan-yan.md)
   * [BDD](go-yu-yan-ji-chu/ce-shi/bdd.md)
+  * [httptest](go-yu-yan-ji-chu/ce-shi/httptest.md)
 * [性能分析](go-yu-yan-ji-chu/xing-neng-fen-xi/README.md)
   * [性能调优](go-yu-yan-ji-chu/xing-neng-fen-xi/xing-neng-tiao-you.md)
 
