@@ -21,7 +21,7 @@ func add() func(int) int {
 }
 
 func main() {
-	f := AddUpper()
+	f := add()
 	fmt.Println(f(1))
 	fmt.Println(f(2))
 	fmt.Println(f(3))
