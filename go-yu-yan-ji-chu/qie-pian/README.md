@@ -293,3 +293,7 @@ slice = append(slice, "Kiwi")
 
 {% embed url="https://blog.golang.org/slices-intro" %}
 
+{% embed url="https://mp.weixin.qq.com/s/NdsnNEpxcTQDX0LffuDzjQ" %}
+
+
+
