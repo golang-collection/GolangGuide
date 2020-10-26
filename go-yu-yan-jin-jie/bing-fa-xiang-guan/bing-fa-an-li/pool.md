@@ -109,7 +109,7 @@ func (p *Pool) Close() {
 }
 ```
 
-main函数
+main程序
 
 ```go
 import (
