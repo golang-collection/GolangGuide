@@ -133,6 +133,7 @@
   * [并发案例](go-yu-yan-jin-jie/bing-fa-xiang-guan/bing-fa-an-li/README.md)
     * [惰性求值](go-yu-yan-jin-jie/bing-fa-xiang-guan/bing-fa-an-li/duo-xing-qiu-zhi.md)
     * [runner](go-yu-yan-jin-jie/bing-fa-xiang-guan/bing-fa-an-li/runner.md)
+    * [pool](go-yu-yan-jin-jie/bing-fa-xiang-guan/bing-fa-an-li/pool.md)
   * [推荐阅读](go-yu-yan-jin-jie/bing-fa-xiang-guan/untitled.md)
 * [Sync包与锁](go-yu-yan-jin-jie/sync-bao-yu-suo/README.md)
   * [单例模式](go-yu-yan-jin-jie/sync-bao-yu-suo/dan-li-mo-shi.md)
