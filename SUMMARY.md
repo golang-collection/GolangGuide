@@ -108,6 +108,7 @@
 * [os包](go-yu-yan-jin-jie/os-bao.md)
 * [flag包](go-yu-yan-jin-jie/args-bao.md)
 * [log包](go-yu-yan-jin-jie/log-bao.md)
+* [io包](go-yu-yan-jin-jie/io-bao.md)
 * [时间处理](go-yu-yan-jin-jie/shi-jian-chu-li.md)
 * [json操作](go-yu-yan-jin-jie/json-cao-zuo/README.md)
   * [go自带json包](go-yu-yan-jin-jie/json-cao-zuo/go-zi-dai-json-bao.md)
