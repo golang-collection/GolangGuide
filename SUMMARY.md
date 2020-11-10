@@ -234,5 +234,6 @@
 * [笔试面经](bi-shi-mian-jing.md)
 * [参考文献](can-kao-wen-xian.md)
 * [推荐资源](tui-jian-zi-yuan.md)
+* [技术文章](ji-shu-wen-zhang.md)
 * [相关库](xiang-guan-ku.md)
 
