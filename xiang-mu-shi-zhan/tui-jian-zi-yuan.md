@@ -24,6 +24,8 @@
 
 {% embed url="https://github.com/photoprism/photoprism" %}
 
+{% embed url="https://github.com/link1st/go-stress-testing" %}
+
 
 
 

@@ -160,6 +160,7 @@
 * [unsafe](go-yu-yan-jin-jie/unsafe.md)
 * [连接池](go-yu-yan-jin-jie/lian-jie-chi.md)
 * [GC](go-yu-yan-jin-jie/gc/README.md)
+  * [内存泄漏](go-yu-yan-jin-jie/gc/nei-cun-xie-lou.md)
   * [Untitled](go-yu-yan-jin-jie/gc/untitled.md)
   * [GC友好的代码](go-yu-yan-jin-jie/gc/gc-you-hao-de-dai-ma.md)
 * [cgo](go-yu-yan-jin-jie/cgo.md)
