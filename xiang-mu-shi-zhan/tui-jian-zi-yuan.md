@@ -22,6 +22,8 @@
 
 {% embed url="https://github.com/1024casts/snake" %}
 
+{% embed url="https://github.com/photoprism/photoprism" %}
+
 
 
 
