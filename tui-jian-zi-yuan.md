@@ -8,6 +8,8 @@
 
 \[4\] Gopher Reading List：[https://github.com/enocom/gopher-reading-list](https://github.com/enocom/gopher-reading-list)
 
+\[5\] mastering go: [https://hantmac.gitbook.io/mastering-go-second/](https://hantmac.gitbook.io/mastering-go-second/)
+
 
 
 ## 博客
