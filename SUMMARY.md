@@ -193,6 +193,7 @@
 * [viper](chang-yong-kuang-jia/viper.md)
 * [限流器](chang-yong-kuang-jia/xian-liu-qi.md)
 * [zap](chang-yong-kuang-jia/zap.md)
+* [cron](chang-yong-kuang-jia/cron.md)
 * [i18n](chang-yong-kuang-jia/i18n.md)
 * [protobuf](chang-yong-kuang-jia/protobuf.md)
 * [go-micro](chang-yong-kuang-jia/go-micro.md)
