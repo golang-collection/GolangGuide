@@ -299,7 +299,7 @@ ok      example   4.690s
 
 `Generate` 分配的内存是 `GenerateWithCap` 的 6 倍，设置了切片容量，内存只分配一次，而不设置切片容量，内存分配了 40 次。
 
-## 测试不同输入
+### 测试不同输入
 
 不同的函数复杂度不同，O\(1\)，O\(n\)，O\(n^2\) 等，利用 benchmark 验证复杂度一个简单的方式，是构造不同的输入。
 
@@ -347,7 +347,110 @@ PASS
 
 ### 注意事项
 
+#### ResetTimer
 
+如果在 benchmark 开始前，需要一些准备工作，如果准备工作比较耗时，则需要将这部分代码的耗时忽略掉。比如下面的例子：
+
+```go
+func BenchmarkFib(b *testing.B) {
+	time.Sleep(time.Second * 3) // 模拟耗时准备任务
+	for n := 0; n < b.N; n++ {
+		fib(30) // run fib(30) b.N times
+	}
+}
+```
+
+运行结果是：
+
+```go
+$ go test -bench='Fib$' -benchtime=50x .
+goos: darwin
+goarch: amd64
+pkg: example
+BenchmarkFib-8                50          65912552 ns/op
+PASS
+ok      example 6.319s
+```
+
+50次调用，每次调用约 0.66s，是之前的 0.06s 的 11 倍。究其原因，受到了耗时准备任务的干扰。我们需要用 `ResetTimer` 屏蔽掉：
+
+```go
+func BenchmarkFib(b *testing.B) {
+	time.Sleep(time.Second * 3) // 模拟耗时准备任务
+	b.ResetTimer() // 重置定时器
+	for n := 0; n < b.N; n++ {
+		fib(30) // run fib(30) b.N times
+	}
+}
+```
+
+运行结果恢复正常，每次调用约 0.06s。
+
+```go
+$ go test -bench='Fib$' -benchtime=50x .
+goos: darwin
+goarch: amd64
+pkg: example
+BenchmarkFib-8                50           6187485 ns/op
+PASS
+ok      example 6.330s
+```
+
+#### StopTimer & StartTimer <a id="3-2-StopTimer-amp-StartTimer"></a>
+
+还有一种情况，每次函数调用前后需要一些准备工作和清理工作，我们可以使用 `StopTimer` 暂停计时以及使用 `StartTimer` 开始计时。
+
+例如，如果测试一个冒泡函数的性能，每次调用冒泡函数前，需要随机生成一个数字序列，这是非常耗时的操作，这种场景下，就需要使用 `StopTimer` 和 `StartTimer` 避免将这部分时间计算在内。例如：
+
+```go
+package main
+
+import (
+	"math/rand"
+	"testing"
+	"time"
+)
+
+func generateWithCap(n int) []int {
+	rand.Seed(time.Now().UnixNano())
+	nums := make([]int, 0, n)
+	for i := 0; i < n; i++ {
+		nums = append(nums, rand.Int())
+	}
+	return nums
+}
+
+func bubbleSort(nums []int) {
+	for i := 0; i < len(nums); i++ {
+		for j := 1; j < len(nums)-i; j++ {
+			if nums[j] < nums[j-1] {
+				nums[j], nums[j-1] = nums[j-1], nums[j]
+			}
+		}
+	}
+}
+
+func BenchmarkBubbleSort(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		b.StopTimer()
+		nums := generateWithCap(10000)
+		b.StartTimer()
+		bubbleSort(nums)
+	}
+}
+```
+
+执行该用例，每次排序耗时约 0.1s。
+
+```go
+$ go test -bench='Sort$' .
+goos: darwin
+goarch: amd64
+pkg: example
+BenchmarkBubbleSort-8                  9         113280509 ns/op
+PASS
+ok      example 1.146s
+```
 
 ## 代码覆盖率
 
