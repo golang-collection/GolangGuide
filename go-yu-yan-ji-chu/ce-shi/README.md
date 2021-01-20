@@ -188,7 +188,166 @@ BenchmarkAesEncrypt-8   	 1642801	       720 ns/op
 PASS
 ```
 
+### b.N
+
 基准测试框架默认会在持续 1 秒的时间内，反复调用需要测试的函数。测试框架每次调用测试函数时，都会增加 b.N 的值。第一次调用时， b.N 的值为 1 。需要注意，一定要将所有要进行基准测试的代码都放到循环里，并且循环要使用 b.N 的值。 否则，测试的结果是不可靠的。
+
+benchmark 用例的参数 `b *testing.B`，有个属性 `b.N` 表示这个用例需要运行的次数。`b.N` 对于每个用例都是不一样的。
+
+那这个值是如何决定的呢？`b.N` 从 1 开始，如果该用例能够在 1s 内完成，`b.N` 的值便会增加，再次执行。`b.N` 的值大概以 1, 2, 3, 5, 10, 20, 30, 50, 100 这样的序列递增，越到后面，增加得越快。
+
+### 调用cpu核数
+
+在基准测试输出中的-8就代表使用8核，默认就等于cpu核数GOMAXPROCS，可以通过-cpu改变
+
+```go
+go test -bench='rse$' -cpu=2,4 .
+```
+
+### 提升测试准确度
+
+通过benchtime来使测试时间更长
+
+```go
+go test -bench='rse$' -benchtime=5s .
+```
+
+除了制定制定多长时间还可以制定执行多少次
+
+```go
+go test -bench='rse$' -benchtime=50x .
+```
+
+`count` 参数可以用来设置 benchmark 的轮数
+
+```go
+go test -bench='rse$' -benchtime=5s -count=3 .
+```
+
+### 内存分配情况
+
+转载自：[https://geektutu.com/post/hpg-benchmark.html](https://geektutu.com/post/hpg-benchmark.html)
+
+`-benchmem` 参数可以度量内存分配的次数。内存分配次数也性能也是息息相关的，例如不合理的切片容量，将导致内存重新分配，带来不必要的开销。
+
+在下面的例子中，`generateWithCap` 和 `generate` 的作用是一致的，生成一组长度为 n 的随机序列。唯一的不同在于，`generateWithCap` 创建切片时，将切片的容量\(capacity\)设置为 n，这样切片就会一次性申请 n 个整数所需的内存。
+
+```go
+package main
+
+import (
+	"math/rand"
+	"testing"
+	"time"
+)
+
+func generateWithCap(n int) []int {
+	rand.Seed(time.Now().UnixNano())
+	nums := make([]int, 0, n)
+	for i := 0; i < n; i++ {
+		nums = append(nums, rand.Int())
+	}
+	return nums
+}
+
+func generate(n int) []int {
+	rand.Seed(time.Now().UnixNano())
+	nums := make([]int, 0)
+	for i := 0; i < n; i++ {
+		nums = append(nums, rand.Int())
+	}
+	return nums
+}
+
+func BenchmarkGenerateWithCap(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		generateWithCap(1000000)
+	}
+}
+
+func BenchmarkGenerate(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		generate(1000000)
+	}
+}
+```
+
+程序输出结果
+
+```go
+goos: darwin
+goarch: amd64
+pkg: example
+BenchmarkGenerateWithCap-8            54          21915768 ns/op
+BenchmarkGenerate-8                   43          27031462 ns/op
+PASS
+ok      example   6.790s
+```
+
+可以使用 `-benchmem` 参数看到内存分配的情况：
+
+```go
+goos: darwin
+goarch: amd64
+pkg: example
+BenchmarkGenerateWithCap-8            50          22020888 ns/op         8003665 B/op          1 allocs/op
+BenchmarkGenerate-8                   42          26996118 ns/op        45188388 B/op         40 allocs/op
+PASS
+ok      example   4.690s
+
+```
+
+`Generate` 分配的内存是 `GenerateWithCap` 的 6 倍，设置了切片容量，内存只分配一次，而不设置切片容量，内存分配了 40 次。
+
+## 测试不同输入
+
+不同的函数复杂度不同，O\(1\)，O\(n\)，O\(n^2\) 等，利用 benchmark 验证复杂度一个简单的方式，是构造不同的输入。
+
+```go
+import (
+	"math/rand"
+	"testing"
+	"time"
+)
+
+func generate(n int) []int {
+	rand.Seed(time.Now().UnixNano())
+	nums := make([]int, 0)
+	for i := 0; i < n; i++ {
+		nums = append(nums, rand.Int())
+	}
+	return nums
+}
+func benchmarkGenerate(i int, b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		generate(i)
+	}
+}
+
+func BenchmarkGenerate1000(b *testing.B)    { benchmarkGenerate(1000, b) }
+func BenchmarkGenerate10000(b *testing.B)   { benchmarkGenerate(10000, b) }
+func BenchmarkGenerate100000(b *testing.B)  { benchmarkGenerate(100000, b) }
+func BenchmarkGenerate1000000(b *testing.B) { benchmarkGenerate(1000000, b) }
+```
+
+这里，我们实现一个辅助函数 `benchmarkGenerate` 允许传入参数 i，并构造了 4 个不同输入的 benchmark 用例。运行结果如下：
+
+```go
+goos: darwin
+goarch: amd64
+pkg: example
+BenchmarkGenerate1000-8            38001             31278 ns/op
+BenchmarkGenerate10000-8            4448            250563 ns/op
+BenchmarkGenerate100000-8            480           2420767 ns/op
+BenchmarkGenerate1000000-8            46          25209769 ns/op
+PASS
+```
+
+通过测试结果可以发现，输入变为原来的 10 倍，函数每次调用的时长也差不多是原来的 10 倍，这说明复杂度是线性的。
+
+### 注意事项
+
+
 
 ## 代码覆盖率
 
