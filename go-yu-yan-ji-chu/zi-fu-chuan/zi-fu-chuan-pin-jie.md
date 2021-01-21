@@ -1,6 +1,10 @@
 # 字符串拼接
 
-## SPrintf
+在 Go 语言中，字符串\(string\) 是不可变的，拼接字符串事实上是创建了一个新的字符串对象。如果代码中存在大量的字符串拼接，对性能会产生严重的影响。
+
+## 拼接方式
+
+### SPrintf
 
 ```go
 const numbers = 100
@@ -17,7 +21,7 @@ func BenchmarkSprintf(b *testing.B) {
 }
 ```
 
-## +拼接
+### +拼接
 
 ```go
 func BenchmarkStringAdd(b *testing.B) {
@@ -33,7 +37,7 @@ func BenchmarkStringAdd(b *testing.B) {
 }
 ```
 
-## bytes.Buffer
+### bytes.Buffer
 
 ```go
 func BenchmarkBytesBuf(b *testing.B) {
@@ -49,7 +53,7 @@ func BenchmarkBytesBuf(b *testing.B) {
 }
 ```
 
-## strings.Builder拼接
+### strings.Builder
 
 ```go
 func BenchmarkStringBuilder(b *testing.B) {
