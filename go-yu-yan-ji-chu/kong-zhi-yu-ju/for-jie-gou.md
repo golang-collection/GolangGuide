@@ -278,3 +278,7 @@ index int(rune) rune    char bytes
 
 我们可以看到，常用英文字符使用 1 个字节表示，而汉字（**译者注：严格来说，“Chinese: 日本語”的Chinese应该是Japanese**）使用 3 个字符表示。
 
+## for和range的性能比较
+
+
+
