@@ -181,6 +181,7 @@
 * [GORM-MySQL](chang-yong-kuang-jia/gorm-mysql/README.md)
   * [fuckdb](chang-yong-kuang-jia/gorm-mysql/fuckdb.md)
   * [生成go代码](chang-yong-kuang-jia/gorm-mysql/sheng-cheng-go-dai-ma.md)
+  * [常见坑](chang-yong-kuang-jia/gorm-mysql/chang-jian-keng.md)
 * [Redis](chang-yong-kuang-jia/redis.md)
 * [RabbitMQ](chang-yong-kuang-jia/rabbitmq.md)
 * [gnet](chang-yong-kuang-jia/gnet.md)
