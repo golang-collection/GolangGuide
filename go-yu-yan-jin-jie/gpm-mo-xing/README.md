@@ -12,3 +12,9 @@ Go 语言的运行时会在逻辑处理器上调度 goroutine来运行。每个�
 
 即便只有一个逻辑处理器，Go也可以以神奇的效率和性能，并发调度无数个goroutine。
 
+## 推荐阅读
+
+{% embed url="https://draveness.me/system-design-scheduler/" %}
+
+
+
