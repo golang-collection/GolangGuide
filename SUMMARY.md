@@ -88,6 +88,7 @@
   * [结构体比较](go-yu-yan-ji-chu/jie-gou-ti/jie-gou-ti-bi-jiao.md)
   * [空结构体 struct{}](go-yu-yan-ji-chu/jie-gou-ti/kong-jie-gou-ti.md)
   * [结构体判断是否为空](go-yu-yan-ji-chu/jie-gou-ti/jie-gou-ti-pan-duan-shi-fou-wei-kong.md)
+  * [struct内存对齐](go-yu-yan-ji-chu/jie-gou-ti/struct-nei-cun-dui-qi.md)
 * [方法](go-yu-yan-ji-chu/fang-fa/README.md)
   * [String\(\) 方法和格式化描述](go-yu-yan-ji-chu/fang-fa/string-fang-fa-he-ge-shi-hua-miao-shu.md)
   * [垃圾回收和SetFinalizer](go-yu-yan-ji-chu/fang-fa/la-ji-hui-shou-he-setfinalizer.md)
