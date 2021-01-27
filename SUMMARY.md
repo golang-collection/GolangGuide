@@ -86,7 +86,7 @@
   * [标签](go-yu-yan-ji-chu/jie-gou-ti/biao-qian.md)
   * [匿名字段和内嵌结构体](go-yu-yan-ji-chu/jie-gou-ti/ni-ming-zi-duan-he-nei-qian-jie-gou-ti.md)
   * [结构体比较](go-yu-yan-ji-chu/jie-gou-ti/jie-gou-ti-bi-jiao.md)
-  * [空结构体](go-yu-yan-ji-chu/jie-gou-ti/kong-jie-gou-ti.md)
+  * [空结构体 struct{}](go-yu-yan-ji-chu/jie-gou-ti/kong-jie-gou-ti.md)
   * [结构体判断是否为空](go-yu-yan-ji-chu/jie-gou-ti/jie-gou-ti-pan-duan-shi-fou-wei-kong.md)
 * [方法](go-yu-yan-ji-chu/fang-fa/README.md)
   * [String\(\) 方法和格式化描述](go-yu-yan-ji-chu/fang-fa/string-fang-fa-he-ge-shi-hua-miao-shu.md)
