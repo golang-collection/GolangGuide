@@ -3,10 +3,12 @@
 切片本质是一个数组片段的描述，包括了数组的指针，这个片段的长度和容量\(不改变内存分配情况下的最大长度\)。
 
 ```go
-struct {
-    ptr *[]T
-    len int
-    cap int
+// runtime/slice.go
+// slice结构体定义
+type slice struct {
+    array unsafe.Pointer // 元素指针
+    len   int // 长度 
+    cap   int // 容量
 }
 ```
 
