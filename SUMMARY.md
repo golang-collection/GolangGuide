@@ -133,7 +133,7 @@
     * [无缓冲的通道](go-yu-yan-jin-jie/bing-fa-xiang-guan/tong-dao/wu-huan-chong-de-tong-dao.md)
     * [带缓冲的通道](go-yu-yan-jin-jie/bing-fa-xiang-guan/tong-dao/dai-huan-chong-de-tong-dao.md)
     * [通道关闭](go-yu-yan-jin-jie/bing-fa-xiang-guan/tong-dao/tong-dao-guan-bi.md)
-  * [select与超时机制](go-yu-yan-jin-jie/bing-fa-xiang-guan/chao-shi-she-zhi.md)
+  * [超时退出](go-yu-yan-jin-jie/bing-fa-xiang-guan/chao-shi-she-zhi.md)
   * [sync.WaitGroup](go-yu-yan-jin-jie/bing-fa-xiang-guan/sync.waitgroup.md)
   * [sync.Pool](go-yu-yan-jin-jie/bing-fa-xiang-guan/sync.pool/README.md)
     * [对象池](go-yu-yan-jin-jie/bing-fa-xiang-guan/sync.pool/dui-xiang-chi.md)
