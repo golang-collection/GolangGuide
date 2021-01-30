@@ -1,6 +1,8 @@
 # Sync.Pool
 
+> 转载自：[https://github.com/polaris1119/The-Golang-Standard-Library-by-Example/blob/master/chapter16/16.01.md](https://github.com/polaris1119/The-Golang-Standard-Library-by-Example/blob/master/chapter16/16.01.md)
 
+sync.Pool 其实不适合用来做持久保存的对象池（比如连接池）。它更适合用来做临时对象池，目的是为了降低 GC 的压力。
 
 ```go
 import (
