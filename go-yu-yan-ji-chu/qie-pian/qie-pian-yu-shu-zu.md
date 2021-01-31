@@ -75,42 +75,57 @@ s3:
 
 ## 扩容
 
-> 一旦一个切片无法容纳更多的元素，Go 语言就会想办法扩容。但它并不会改变原来的切片，而是会生成一个容量更大的切片，然后将把原有的元素和新元素一并拷贝到新切片中。在一般的情况下，你可以简单地认为新切片的容量（以下简称新容量）将会是原切片容量（以下简称原容量）的 2 倍。但是，当原切片的长度（以下简称原长度）大于或等于1024时，Go 语言将会以原容量的1.25倍作为新容量的基准（以下新容量基准）。新容量基准会被调整（不断地与1.25相乘），直到结果不小于原长度与要追加的元素数量之和（以下简称新长度）。最终，新容量往往会比新长度大一些，当然，相等也是可能的。另外，如果我们一次追加的元素过多，以至于使新长度比原容量的 2 倍还要大，那么新容量就会以新长度为基准。注意，与前面那种情况一样，最终的新容量在很多时候都要比新容量基准更大一些。
->
-> 来源：[https://time.geekbang.org/column/article/14106](https://time.geekbang.org/column/article/14106)
-
 Go 语言源代码 [runtime/slice.go](https://golang.org/src/runtime/slice.go) 中是这么实现的
 
 ```go
-newcap := old.cap
-doublecap := newcap + newcap
-if cap > doublecap {
-	newcap = cap
-} else {
-	if old.len < 1024 {
-		newcap = doublecap
+// go 1.9.5 src/runtime/slice.go:82
+func growslice(et *_type, old slice, cap int) slice {
+    // ……
+    newcap := old.cap
+	doublecap := newcap + newcap
+	if cap > doublecap {
+		newcap = cap
 	} else {
-		// Check 0 < newcap to detect overflow
-		// and prevent an infinite loop.
-		for 0 < newcap && newcap < cap {
-			newcap += newcap / 4
-		}
-		// Set newcap to the requested cap when
-		// the newcap calculation overflowed.
-		if newcap <= 0 {
-			newcap = cap
+		if old.len < 1024 {
+			newcap = doublecap
+		} else {
+			for newcap < cap {
+				newcap += newcap / 4
+			}
 		}
 	}
+	// ……
+	
+	capmem = roundupsize(uintptr(newcap) * ptrSize)
+	newcap = int(capmem / ptrSize)
 }
 ```
 
-而且只要新长度不超过切片的原容量，那么使用append函数对其追加元素的时候就不会引起扩容。这只会使紧邻切片窗口右边的（底层数组中的）元素被新的元素替换掉。
+### 扩容过程
+
+#### 预估容量
+
+如果oldCap\*2 &lt; cap，那么newCap=cap
+
+否则 oldLen&lt;1024那么cap=oldCap\*2，oldCap&gt;1024=oldCap\*1.25
+
+#### 所占内存
+
+扩容时会将预估容量与变量类型所占字节相乘，然后进行下一步申请内存
+
+#### 申请内存
+
+根据所占内存向提前申请好的内存块进行匹配，匹配到最合适的，然后将拿到的内存大小除以数据类型所占字节，就是最终的cap大小
+
+例子：
+
+![](../../.gitbook/assets/image%20%2843%29.png)
 
 ## 参考资料
 
 \[1\] [Go语言核心36讲：07数组和切片](https://time.geekbang.org/column/article/14106)
 
-
+{% embed url="https://www.bilibili.com/video/BV1CV411d7W8" %}
 
 
 
