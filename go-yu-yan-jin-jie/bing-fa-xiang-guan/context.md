@@ -1,6 +1,6 @@
 # Context
 
-转载自：[https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-context/](https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-context/)
+> 转载自：[https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-context/](https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-context/)
 
 上下文 [`context.Context`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L62-L154) 是用来设置截止日期、同步信号，传递请求相关值的结构体。上下文与 Goroutine 有比较密切的关系。[`context.Context`](https://github.com/golang/go/blob/df2999ef43ea49ce1578137017949c0ee660608a/src/context/context.go#L62-L154) 是 Go 语言中独特的设计，在其他编程语言中我们很少见到类似的概念。
 
@@ -341,4 +341,5 @@ Go 语言中的 [`context.Context`](https://github.com/golang/go/blob/71bbffbc48
 * [Package context · Golang](https://golang.org/pkg/context/)
 * [Go Concurrency Patterns: Context](https://blog.golang.org/context)
 * [Using context cancellation in Go](https://www.sohamkamani.com/blog/golang/2018-06-17-golang-using-context-cancellation/)
+* [https://www.flysnow.org/2017/05/12/go-in-action-go-context.html](https://www.flysnow.org/2017/05/12/go-in-action-go-context.html)
 
