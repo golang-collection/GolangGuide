@@ -131,6 +131,7 @@
   * [线程，进程，协程， 并发，并行，同步，异步概念解析](go-yu-yan-jin-jie/bing-fa-xiang-guan/xian-cheng-jin-cheng-xie-cheng-bing-fa-bing-hang-tong-bu-yi-bu-gai-nian-jie-xi.md)
   * [创建进程](go-yu-yan-jin-jie/bing-fa-xiang-guan/chuang-jian-jin-cheng.md)
   * [goroutine](go-yu-yan-jin-jie/bing-fa-xiang-guan/goroutine.md)
+  * [控制协程并发数量](go-yu-yan-jin-jie/bing-fa-xiang-guan/kong-zhi-xie-cheng-bing-fa-shu-liang.md)
   * [并发通信](go-yu-yan-jin-jie/bing-fa-xiang-guan/bing-fa-tong-xin.md)
   * [竞争状态](go-yu-yan-jin-jie/bing-fa-xiang-guan/jing-zheng-zhuang-tai.md)
   * [通道](go-yu-yan-jin-jie/bing-fa-xiang-guan/tong-dao/README.md)
