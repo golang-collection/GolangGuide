@@ -19,7 +19,7 @@
 * [数据类型](go-yu-yan-ji-chu/shu-ju-lei-xing.md)
 * [变量](go-yu-yan-ji-chu/untitled/README.md)
   * [变量的逃逸分析](go-yu-yan-ji-chu/untitled/tao-yi-fen-xi.md)
-  * [变量的生命周期](go-yu-yan-ji-chu/untitled/bian-liang-de-sheng-ming-zhou-qi.md)
+  * [内存分配](go-yu-yan-ji-chu/untitled/nei-cun-fen-pei.md)
 * [常量与枚举](go-yu-yan-ji-chu/chang-liang-yu-mei-ju.md)
 * [fmt包](go-yu-yan-ji-chu/fmt-bao/README.md)
   * [控制台输入](go-yu-yan-ji-chu/fmt-bao/kong-zhi-tai-shu-ru.md)

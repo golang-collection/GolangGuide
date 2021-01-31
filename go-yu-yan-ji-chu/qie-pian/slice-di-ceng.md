@@ -38,5 +38,7 @@ printLenCap(nums2) // len: 4, cap: 6 [3 4 50 60]
 
 {% embed url="https://geektutu.com/post/hpg-slice.html\#1-2-%E5%88%87%E7%89%87" %}
 
+{% embed url="https://www.cnblogs.com/qcrao-2018/p/10631989.html" %}
+
 
 
