@@ -153,7 +153,7 @@
   * [单例模式](go-yu-yan-jin-jie/sync-bao-yu-suo/dan-li-mo-shi.md)
   * [sync.Pool](go-yu-yan-jin-jie/sync-bao-yu-suo/sync.pool.md)
   * [sync.WaitGroup](go-yu-yan-jin-jie/sync-bao-yu-suo/sync.waitgroup.md)
-  * [Once](go-yu-yan-jin-jie/sync-bao-yu-suo/once.md)
+  * [sync.Once](go-yu-yan-jin-jie/sync-bao-yu-suo/once.md)
   * [Cond](go-yu-yan-jin-jie/sync-bao-yu-suo/cond.md)
   * [atomic](go-yu-yan-jin-jie/sync-bao-yu-suo/atomic.md)
   * [Mutex](go-yu-yan-jin-jie/sync-bao-yu-suo/mutex.md)

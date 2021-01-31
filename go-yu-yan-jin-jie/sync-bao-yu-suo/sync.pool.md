@@ -1,10 +1,22 @@
 # sync.Pool
 
-> 转载自：[https://geektutu.com/post/hpg-sync-pool.html](https://geektutu.com/post/hpg-sync-pool.html)
+> 转载自：
+>
+> [https://geektutu.com/post/hpg-sync-pool.html](https://geektutu.com/post/hpg-sync-pool.html)
+>
+> [https://www.cnblogs.com/qcrao-2018/p/12736031.html](https://www.cnblogs.com/qcrao-2018/p/12736031.html)
+
+## 什么是sync.pool <a id="1-sync-Pool-&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;"></a>
+
+`sync.Pool` 是 sync 包下的一个组件，可以作为保存临时取还对象的一个“池子”。个人觉得它的名字有一定的误导性，因为 Pool 里装的对象可以被**无通知地被回收**，可能 `sync.Cache` 是一个更合适的名字。
 
 ## sync.Pool 的使用场景 <a id="1-sync-Pool-&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;"></a>
 
 > 一句话总结：保存和复用临时对象，减少内存分配，降低 GC 压力。
+>
+> 对于很多需要重复分配、回收内存的地方，`sync.Pool` 是一个很好的选择。频繁地分配、回收内存会给 GC 带来一定的负担，严重的时候会引起 CPU 的毛刺，而 `sync.Pool` 可以将暂时不用的对象缓存起来，待下次需要的时候直接使用，不用再次经过内存分配，复用对象的内存，减轻 GC 的压力，提升系统的性能。
+>
+> 当多个 goroutine 都需要创建同⼀个对象的时候，如果 goroutine 数过多，导致对象的创建数⽬剧增，进⽽导致 GC 压⼒增大。形成 “并发⼤－占⽤内存⼤－GC 缓慢－处理并发能⼒降低－并发更⼤”这样的恶性循环。在这个时候，需要有⼀个对象池，每个 goroutine 不再⾃⼰单独创建对象，⽽是从对象池中获取出⼀个对象（如果池中已经有的话）。
 
 举个简单的例子：
 
