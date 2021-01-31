@@ -154,7 +154,7 @@
   * [sync.Pool](go-yu-yan-jin-jie/sync-bao-yu-suo/sync.pool.md)
   * [sync.WaitGroup](go-yu-yan-jin-jie/sync-bao-yu-suo/sync.waitgroup.md)
   * [sync.Once](go-yu-yan-jin-jie/sync-bao-yu-suo/once.md)
-  * [Cond](go-yu-yan-jin-jie/sync-bao-yu-suo/cond.md)
+  * [sync.Cond](go-yu-yan-jin-jie/sync-bao-yu-suo/cond.md)
   * [atomic](go-yu-yan-jin-jie/sync-bao-yu-suo/atomic.md)
   * [Mutex](go-yu-yan-jin-jie/sync-bao-yu-suo/mutex.md)
   * [RWMutex](go-yu-yan-jin-jie/sync-bao-yu-suo/rwmutex.md)

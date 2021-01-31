@@ -1,4 +1,4 @@
-# Cond
+# sync.Cond
 
 sync.Cond 是用来控制某个条件下，goroutine 进入等待时期，等待信号到来，然后重新启动。比如：
 
@@ -85,4 +85,10 @@ func (c *Cond) Wait() {
 ```
 
 Cond.Wait 会自动释放锁等待信号的到来，当信号到来后，第一个获取到信号的 Wait 将继续往下执行并从新上锁，如果不释放锁， 其它收到信号的 gouroutine 将阻塞无法继续执行。 由于各个 Wait 收到信号的时间是不确定的，因此每次的输出顺序也都是随机的。
+
+## 推荐阅读
+
+{% embed url="https://geektutu.com/post/hpg-sync-cond.html" %}
+
+
 
