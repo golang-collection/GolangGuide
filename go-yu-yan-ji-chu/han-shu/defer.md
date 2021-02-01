@@ -119,3 +119,9 @@ func main(){
 
 而且defer语句也要花费更大的代价，所以在高性能的算法设计中要谨慎使用。
 
+## 推荐阅读
+
+{% embed url="https://www.kancloud.cn/aceld/golang/1958310" %}
+
+
+
