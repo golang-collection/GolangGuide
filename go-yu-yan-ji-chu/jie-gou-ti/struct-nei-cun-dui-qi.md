@@ -165,3 +165,11 @@ func main() {
 
 可以看到，`demo4{}` 的大小为 4 字节，与字段 c 占据空间一致，而 `demo3{}` 的大小为 8 字节，即额外填充了 4 字节的空间。
 
+## 推荐阅读
+
+{% embed url="https://www.bilibili.com/video/BV1iZ4y1j7TT/?spm\_id\_from=trigger\_reload" %}
+
+{% embed url="https://www.bilibili.com/video/BV1Ja4y1i7AF" %}
+
+
+
