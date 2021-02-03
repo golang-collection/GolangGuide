@@ -81,5 +81,11 @@ areaIntf does not contain a variable of type Circle
 
 **备注**
 
-如果忽略 `areaIntf.(*Square)` 中的 `*` 号，会导致编译错误：`impossible type assertion: Square does not implement Shaper (Area method has pointer receiver)`。
+如果忽略 `areaIntf.(*Square)` 中的 `*` 号，会导致编译错误：`impossible type assertion: Square does not implement Shaper (Area method has pointer receiver)`
+
+## 推荐阅读
+
+{% embed url="https://www.bilibili.com/video/BV1iZ4y1T7zF?p=3&spm\_id\_from=pageDriver" %}
+
+
 
