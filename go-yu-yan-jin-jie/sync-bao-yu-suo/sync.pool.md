@@ -203,6 +203,10 @@ func Printf(format string, a ...interface{}) (n int, err error) {
 
 > 这个例子来源于：[深度解密 Go 语言之 sync.Pool](https://www.cnblogs.com/qcrao-2018/p/12736031.html)
 
+## 底层实现原理
+
+
+
 ## 推荐阅读
 
 {% embed url="https://www.cnblogs.com/qcrao-2018/p/12736031.html" %}
