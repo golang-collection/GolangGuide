@@ -25,5 +25,9 @@ Go在程序启动的时候，会先向操作系统申请一块内存（注意这
 
 {% embed url="https://gfw.go101.org/article/memory-layout.html" %}
 
+{% embed url="https://draveness.me/golang/docs/part3-runtime/ch07-memory/golang-memory-allocator/" %}
+
+{% embed url="https://mp.weixin.qq.com/s/3gGbJaeuvx4klqcv34hmmw" %}
+
 
 
