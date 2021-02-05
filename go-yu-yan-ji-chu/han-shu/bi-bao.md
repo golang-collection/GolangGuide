@@ -119,3 +119,9 @@ func main() {
 
 **我也找到了js中闭包的一个优秀解答**[**链接在这里**](https://stackoverflow.com/questions/111102/how-do-javascript-closures-work)
 
+## **推荐阅读**
+
+{% embed url="https://www.bilibili.com/video/BV1ma4y1e7R5" %}
+
+\*\*\*\*
+
