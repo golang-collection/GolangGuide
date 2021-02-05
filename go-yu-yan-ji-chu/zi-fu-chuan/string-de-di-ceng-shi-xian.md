@@ -2,7 +2,7 @@
 
 字符串底层结构如下所示
 
-```text
+```go
 type stringStruct struct {
 	str unsafe.Pointer
 	len int
