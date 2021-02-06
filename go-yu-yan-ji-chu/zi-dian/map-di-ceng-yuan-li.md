@@ -42,6 +42,15 @@ type bmap struct {
     // tophash[0] is a bucket evacuation state instead.
     tophash [bucketCnt]uint8
 }
+// 但这只是表面(src/runtime/hashmap.go)的结构，
+// 编译期间会给它加料，动态地创建一个新的结构：
+type bmap struct {
+    topbits  [8]uint8
+    keys     [8]keytype
+    values   [8]valuetype
+    pad      uintptr
+    overflow uintptr
+}
 ```
 
 其中hmap结构体变量解释如下：
@@ -66,9 +75,66 @@ type bmap struct {
 
 对于bmap来说，它的图示如下，内部会讲key放在一起，value放在一起，通过这样的方式使内存排列更加紧凑，第一行存储的是每个key对应的hash值的高八位。
 
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.cnblogs.com/qcrao-2018/p/10903807.html](../../.gitbook/assets/image%20%2844%29.png)
+
 为了减少扩容的次数，当桶存满时，只要还有可用的溢出桶就会在对应的bmap后面链接对应的溢出桶。
 
 如果hmap中的B&gt;4，就认为溢出的可能性比较高，就会预先分配2^\(B-4\)个溢出桶用于备用，在内存中其与常规桶是连续的，前2^B个用于常规桶，会面的用于做溢出桶。
+
+## 哈希函数
+
+map 的一个关键点在于，哈希函数的选择。在程序启动时，会检测 cpu 是否支持 aes，如果支持，则使用 aes hash，否则使用 memhash。这是在函数 `alginit()` 中完成，位于路径：`src/runtime/alg.go` 下。
+
+{% hint style="info" %}
+hash 函数，有加密型和非加密型。 加密型的一般用于加密数据、数字摘要等，典型代表就是 md5、sha1、sha256、aes256 这种； 非加密型的一般就是查找。在 map 的应用场景中，用的是查找。 选择 hash 函数主要考察的是两点：性能、碰撞概率。
+{% endhint %}
+
+表示类型的结构体：
+
+```go
+type _type struct {
+	size       uintptr
+	ptrdata    uintptr // size of memory prefix holding all pointers
+	hash       uint32
+	tflag      tflag
+	align      uint8
+	fieldalign uint8
+	kind       uint8
+	alg        *typeAlg
+	gcdata    *byte
+	str       nameOff
+	ptrToThis typeOff
+}
+```
+
+其中 `alg` 字段就和哈希相关，它是指向如下结构体的指针：
+
+```go
+// src/runtime/alg.go
+type typeAlg struct {
+	// (ptr to object, seed) -> hash
+	hash func(unsafe.Pointer, uintptr) uintptr
+	// (ptr to object A, ptr to object B) -> ==?
+	equal func(unsafe.Pointer, unsafe.Pointer) bool
+}
+```
+
+typeAlg 包含两个函数，hash 函数计算类型的哈希值，而 equal 函数则计算两个类型是否“哈希相等”。
+
+对于 string 类型，它的 hash、equal 函数如下：
+
+```go
+func strhash(a unsafe.Pointer, h uintptr) uintptr {
+	x := (*stringStruct)(a)
+	return memhash(x.str, h, uintptr(x.len))
+}
+
+func strequal(p, q unsafe.Pointer) bool {
+	return *(*string)(p) == *(*string)(q)
+}
+```
+
+根据 key 的类型，\_type 结构体的 alg 字段会被设置对应类型的 hash 和 equal 函数。
 
 ## map扩容规则
 
@@ -80,4 +146,10 @@ type bmap struct {
 
 * B&lt;=15且noverflow&gt;=2^B
 * B&gt;15且noverflow&gt;=2^15
+
+## 推荐阅读
+
+{% embed url="https://www.cnblogs.com/qcrao-2018/p/10903807.html" %}
+
+
 
