@@ -1,5 +1,9 @@
 # GPM模型
 
+## 思维导图
+
+{% file src="../../.gitbook/assets/di-er-jiang-golang-xie-cheng-tiao-du-qi-yuan-li-yu-gmp-she-ji-si-xiang- \(1\).pdf" %}
+
 ## 什么是GPM
 
 * G代表一个goroutine，即我们要执行的具体任务

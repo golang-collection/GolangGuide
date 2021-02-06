@@ -75,7 +75,7 @@ type bmap struct {
 
 对于bmap来说，它的图示如下，内部会讲key放在一起，value放在一起，通过这样的方式使内存排列更加紧凑，第一行存储的是每个key对应的hash值的高八位。
 
-![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.cnblogs.com/qcrao-2018/p/10903807.html](../../.gitbook/assets/image%20%2844%29.png)
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.cnblogs.com/qcrao-2018/p/10903807.html](../../.gitbook/assets/image%20%2845%29.png)
 
 为了减少扩容的次数，当桶存满时，只要还有可用的溢出桶就会在对应的bmap后面链接对应的溢出桶。
 
