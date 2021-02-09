@@ -62,3 +62,11 @@ func main() {
 * 第 22 行使用 defer 将 countGuard 的解锁进行延迟调用，解锁操作将会发生在 GetCount\(\) 函数返回时。
 * 第 27 行在设置 count 值时，同样使用 countGuard 进行加锁、解锁操作，保证修改 count 值的过程是一个原子过程，不会发生并发访问冲突。
 
+## Mutex的模式
+
+
+
+## Mutex可以用作自旋锁吗？
+
+
+
