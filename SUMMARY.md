@@ -254,6 +254,7 @@
 
 * [Go语言常见坑](go-yu-yan-chang-jian-keng/README.md)
   * [Go在容器运行的注意事项](go-yu-yan-chang-jian-keng/go-zai-rong-qi-yun-hang-de-zhu-yi-shi-xiang.md)
+  * [if赋值语句](go-yu-yan-chang-jian-keng/if-fu-zhi-yu-ju.md)
 * [笔试面经](bi-shi-mian-jing/README.md)
   * [go标准库设计](bi-shi-mian-jing/go-biao-zhun-ku-she-ji.md)
   * [go的GC](bi-shi-mian-jing/go-de-gc.md)
