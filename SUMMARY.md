@@ -19,6 +19,7 @@
 * [数据类型](go-yu-yan-ji-chu/shu-ju-lei-xing.md)
 * [变量](go-yu-yan-ji-chu/untitled/README.md)
   * [uint](go-yu-yan-ji-chu/untitled/uint.md)
+  * [byte](go-yu-yan-ji-chu/untitled/byte.md)
   * [rune](go-yu-yan-ji-chu/untitled/rune.md)
   * [变量的逃逸分析](go-yu-yan-ji-chu/untitled/tao-yi-fen-xi.md)
 * [常量与枚举](go-yu-yan-ji-chu/chang-liang-yu-mei-ju.md)
