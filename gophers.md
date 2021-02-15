@@ -8,7 +8,3 @@
 
 {% embed url="https://github.com/egonelbre/gophers" %}
 
-
-
-
-

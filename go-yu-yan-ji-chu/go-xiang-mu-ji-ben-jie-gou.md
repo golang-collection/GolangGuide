@@ -4,7 +4,7 @@
 
 * Go程序是通过**package**来组织的
 * 只有package **名称为main的包**可以包含main函数
-* 一个可执行程序**有且仅有**一个main包 _初步练习时可以使用这种结构_ 
+* 一个可执行程序**有且仅有**一个main包，_初步练习时可以使用这种结构_
 
 ![&#x7EC3;&#x4E60;](https://imgconvert.csdnimg.cn/aHR0cDovL2ltZy5ibG9nLmNzZG4ubmV0LzIwMTcxMTI5MTE1NTAwODQ2?x-oss-process=image/format,png)
 
@@ -36,12 +36,12 @@ func main(){
 
 在go语言中可以使用这样的结构进行导包
 
-![&#x5BFC;&#x5305;](https://img-blog.csdnimg.cn/20190916211320842.png)
+![](https://img-blog.csdnimg.cn/20190916211320842.png)
 
 但是如果你嫌这样写多个import比较麻烦可以这样写  
 
 
-![&#x5BFC;&#x5305;](https://img-blog.csdnimg.cn/20190916211531580.png)
+![](https://img-blog.csdnimg.cn/20190916211531580.png)
 
 ## package的别名
 
@@ -50,5 +50,5 @@ func main(){
 例如：  
 
 
-![&#x522B;&#x540D;](https://img-blog.csdnimg.cn/20190916212112612.png)
+![](https://img-blog.csdnimg.cn/20190916212112612.png)
 

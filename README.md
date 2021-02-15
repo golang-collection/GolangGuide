@@ -6,15 +6,11 @@
 
 {% embed url="https://mp.weixin.qq.com/s/Tzqn5kzdfzcQPUD5NtN2mg" %}
 
-
-
 ## 项目介绍
 
 本项目是对Go语言内容的梳理，包括Go语言基础与常用框架。涉及到的知识点用demo的形式帮助你快速上手。
 
 ## 推荐资源
-
-{% embed url="https://github.com/golang-collection/Go-details" %}
 
 \[1\] [Go 学习之路：Go 开发者博客、Go 微信公众号、Go 学习资料\(文档、书籍、视频\)](https://github.com/talkgo/read)
 

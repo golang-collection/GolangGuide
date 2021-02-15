@@ -10,5 +10,3 @@
 
 {% embed url="https://play.studygolang.com/" %}
 
-
-
