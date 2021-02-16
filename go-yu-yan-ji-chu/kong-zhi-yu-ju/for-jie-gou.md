@@ -203,12 +203,12 @@ func main() {
 	str2 := "Chinese: 日本語"
 	fmt.Printf("The length of str2 is: %d\n", len(str2))
 	for pos, char := range str2 {
-    	fmt.Printf("character %c starts at byte position %d\n", char, pos)
+		fmt.Printf("character %c starts at byte position %d\n", char, pos)
 	}
 	fmt.Println()
-	fmt.Println("index int(rune) rune    char bytes")
+	fmt.Println("index int(rune)    rune   char bytes")
 	for index, rune := range str2 {
-    	fmt.Printf("%-2d      %d      %U '%c' % X\n", index, rune, rune, rune, []byte(string(rune)))
+		fmt.Printf("%-2d      %5d      %U '%c' % X\n", index, rune, rune, rune, []byte(string(rune)))
 	}
 }
 ```
@@ -259,16 +259,16 @@ character 日 starts at byte position 9
 character 本 starts at byte position 12
 character 語 starts at byte position 15
 
-index int(rune) rune    char bytes
-0       67      U+0043 'C' 43
-1       104      U+0068 'h' 68
-2       105      U+0069 'i' 69
-3       110      U+006E 'n' 6E
-4       101      U+0065 'e' 65
-5       115      U+0073 's' 73
-6       101      U+0065 'e' 65
-7       58      U+003A ':' 3A
-8       32      U+0020 ' ' 20
+index int(rune)    rune   char bytes
+0          67      U+0043 'C' 43
+1         104      U+0068 'h' 68
+2         105      U+0069 'i' 69
+3         110      U+006E 'n' 6E
+4         101      U+0065 'e' 65
+5         115      U+0073 's' 73
+6         101      U+0065 'e' 65
+7          58      U+003A ':' 3A
+8          32      U+0020 ' ' 20
 9       26085      U+65E5 '日' E6 97 A5
 12      26412      U+672C '本' E6 9C AC
 15      35486      U+8A9E '語' E8 AA 9E
