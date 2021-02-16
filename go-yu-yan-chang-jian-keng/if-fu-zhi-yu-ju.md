@@ -1,5 +1,7 @@
 # if赋值语句
 
+本质与[变量作用域](../go-yu-yan-ji-chu/untitled/#bian-liang-zuo-yong-yu)有关
+
 ```go
 type A struct {
 }

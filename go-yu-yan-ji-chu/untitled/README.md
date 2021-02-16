@@ -127,3 +127,48 @@ func local(i int){
 }
 ```
 
+下面的例子中也说明了变量的作用域问题
+
+```go
+func main() {
+	b := 2
+	fmt.Println(&b)
+	{
+		a, b := 1, 3
+		fmt.Println(&a, &b)
+	}
+
+	if a, b := 5, 7; a < 6 || b < 6 {
+		fmt.Println(&a, &b)
+	}
+}
+```
+
+程序输出
+
+```go
+0xc00009a008
+0xc00009a020 0xc00009a028
+0xc00009a030 0xc00009a038
+```
+
+所以函数中常用的变量推荐使用这种方式统一进行声明，不仅能减少变量的创建还能防止出现一些可能[被忽略的问题](../../go-yu-yan-chang-jian-keng/if-fu-zhi-yu-ju.md)。
+
+```go
+func main() {
+	var (
+		a int
+		b int
+	)
+	fmt.Println(&a, &b)
+	{
+		a, b = 1, 3
+		fmt.Println(&a, &b)
+	}
+
+	if a, b = 5, 7; a < 6 || b < 6 {
+		fmt.Println(&a, &b)
+	}
+}
+```
+

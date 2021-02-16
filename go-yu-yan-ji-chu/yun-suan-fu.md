@@ -379,7 +379,7 @@ a 的值为  4
 ```
 
 {% hint style="info" %}
-注意我们不能将指针与内存地址混为一谈，内存地址是每个字节的唯一，而指针则是一个具体的实体值，指针内部存储的是一个具体的地址值。
+注意我们不能将指针与内存地址混为一谈，内存地址是每个字节的唯一标识，而指针则是一个具体的实体值，指针内部存储的是一个具体的地址值。
 
 更多内容：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/04.9.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/04.9.md)
 {% endhint %}

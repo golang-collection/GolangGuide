@@ -25,3 +25,18 @@ str
 str: str, a: 1, b: 2.500000
 ```
 
+## 循环输入
+
+```go
+func main() {
+	var a, b int
+	for {
+		n, _ := fmt.Scanf("%d %d", &a, &b)
+		if n != 2 {
+			break
+		}
+		fmt.Println(a + b)
+	}
+}
+```
+
