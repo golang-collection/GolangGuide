@@ -72,7 +72,7 @@ const (
 )
 ```
 
-现在，数字 0、1 和 2 分别代表未知性别、女性和男性。这些枚举值可以用于测试某个变量或常量的实际值，比如使用 switch/case 结构 \(第 5.3 节\).
+现在，数字 0、1 和 2 分别代表未知性别、女性和男性。这些枚举值可以用于测试某个变量或常量的实际值，比如使用 switch/case 结构.
 
 在这个例子中，`iota` 可以被用作枚举值：
 
@@ -93,8 +93,6 @@ const (
 	c
 )
 ```
-
-（ **关于 iota 的使用涉及到非常复杂多样的情况，这里作者解释的并不清晰，因为很难对 iota 的用法进行直观的文字描述。如希望进一步了解，请观看视频教程** [**《Go编程基础》**](https://github.com/Unknwon/go-fundamental-programming) ****[**第四课：常量与运算符**](https://github.com/Unknwon/go-fundamental-programming/blob/master/lectures/lecture4.md) ）
 
 `iota` 也可以用在表达式中，如：`iota + 50`。在每遇到一个新的常量块或单个常量声明时， `iota` 都会重置为 0（ **简单地讲，每遇到一次 const 关键字，iota 就重置为 0** ）。
 
@@ -128,5 +126,36 @@ const (
 	INDIGO
 	VIOLET // 6
 )
+```
+
+下面这个例子也比较特殊
+
+```go
+const (
+    Apple, Banana = iota + 1, iota + 2 //0+1，0+2
+    Cherimoya, Durian //1+1， 1+2
+    Elderberry, Fig //2+1， 2+2
+)
+```
+
+在看下面这个例子
+
+```go
+const (
+	enum_a = 'A'
+	enum_b
+	enum_c = iota
+	enum_d
+)
+
+const enum_e = iota
+
+func main() {
+	fmt.Println(enum_a) //65
+	fmt.Println(enum_b) //65
+	fmt.Println(enum_c) //2
+	fmt.Println(enum_d) //3
+	fmt.Println(enum_e) //0
+}
 ```
 
