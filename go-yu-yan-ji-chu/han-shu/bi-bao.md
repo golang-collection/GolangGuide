@@ -138,21 +138,21 @@ type funcval struct {
 
 其中fn会保存函数指令的入口地址，下面这个例子中演示了正常情况下函数的执行过程
 
-![](../../.gitbook/assets/image%20%2846%29.png)
+![](../../.gitbook/assets/image%20%2847%29.png)
 
 在这种情况下，编译器会作出优化，让f1和f2共用一个funcval结构体，然后在编译阶段，会在只读数据段中分配一个funcval结构体对应fn来记录func A\(\)的入口地址，而其本身的地址addr2会在执行阶段赋值给f1和f2。
 
 下面来看一个闭包的案例
 
-![](../../.gitbook/assets/image%20%2848%29.png)
+![](../../.gitbook/assets/image%20%2852%29.png)
 
 在函数执行过程中，会在内存中按照如下方式分配内存空间
 
-![](../../.gitbook/assets/image%20%2847%29.png)
+![](../../.gitbook/assets/image%20%2850%29.png)
 
 继续向下执行，就会将addr2的地址返回给main栈的返回值处，然后赋值给f1。
 
-![](../../.gitbook/assets/image%20%2849%29.png)
+![](../../.gitbook/assets/image%20%2854%29.png)
 
 函数继续向下执行就会将addr3的地址赋值给f2，接下来通过f1和f2调用函数时会调用对应的addr1，但是f1和f2会使用各自的捕获列表。
 

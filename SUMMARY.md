@@ -32,7 +32,6 @@
   * [for 结构](go-yu-yan-ji-chu/kong-zhi-yu-ju/for-jie-gou.md)
 * [函数](go-yu-yan-ji-chu/han-shu/README.md)
   * [变长参数](go-yu-yan-ji-chu/han-shu/bian-chang-can-shu.md)
-  * [值传递与引用传递](go-yu-yan-ji-chu/han-shu/zhi-chuan-di-yu-yin-yong-chuan-di.md)
   * [多返回值](go-yu-yan-ji-chu/han-shu/duo-fan-hui-zhi.md)
   * [匿名函数](go-yu-yan-ji-chu/han-shu/ni-ming-han-shu.md)
   * [闭包](go-yu-yan-ji-chu/han-shu/bi-bao.md)
