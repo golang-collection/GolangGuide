@@ -144,7 +144,7 @@ type funcval struct {
 
 下面来看一个闭包的案例
 
-![](../../.gitbook/assets/image%20%2852%29.png)
+![](../../.gitbook/assets/image%20%2854%29.png)
 
 在函数执行过程中，会在内存中按照如下方式分配内存空间
 
@@ -152,7 +152,7 @@ type funcval struct {
 
 继续向下执行，就会将addr2的地址返回给main栈的返回值处，然后赋值给f1。
 
-![](../../.gitbook/assets/image%20%2854%29.png)
+![](../../.gitbook/assets/image%20%2856%29.png)
 
 函数继续向下执行就会将addr3的地址赋值给f2，接下来通过f1和f2调用函数时会调用对应的addr1，但是f1和f2会使用各自的捕获列表。
 

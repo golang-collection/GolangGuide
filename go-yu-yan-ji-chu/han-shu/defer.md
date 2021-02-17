@@ -77,31 +77,7 @@ main :  30
 
 可以看到输出结果与上一个案例的输出结果相同，这也就解释了在**`defer`语句入栈的同时也会将值拷贝一份压入栈中。**
 
-## 4. defer与闭包结合
-
-对闭包不熟悉的可以参看[**闭包**](bi-bao.md)。
-
-```go
-func main() {
-	for i := 0;i<3 ;i++  {
-		defer func() {
-			fmt.Println(i)
-		}()
-	}
-}
-```
-
-程序的输出结果为
-
-```go
-3
-3
-3
-```
-
-我在[Go-闭包](https://blog.csdn.net/s_842499467/article/details/104281602)这篇博客中讲过，我们可以**将闭包中的变量看作是类中的静态变量**，再结合`defer`机制的性质，得出这样的结果也就不足为奇了。
-
-## 5. 什么时候使用defer
+## 4. 什么时候使用defer
 
 就像开头提到的，defer机制就是为了更好的关闭资源的，所以我们使用`defer`也是在创建资源后使用，如下例所示。
 
@@ -113,11 +89,67 @@ func main(){
 }
 ```
 
-## 6. 注意事项
+## 5. 注意事项
 
 需要注意一点的是如果我们在main函数中申请资源时使用了defer，要注意这个资源是main函数执行完才会被释放，如果申请的资源很大那无疑是一种错误的处理方式，更为优雅的方式是将其与匿名函数封装，这样匿名函数调用结束则释放资源。
 
 而且defer语句也要花费更大的代价，所以在高性能的算法设计中要谨慎使用。
+
+## 6. 底层实现
+
+defer函数对应的结构体如下，defer函数会注册到一个链表中，每个goroutine都会持有该链表的头指针，新注册的defer函数会添加到链表的头部，所以defer函数执行起来是倒序执行的。
+
+```go
+// A _defer holds an entry on the list of deferred calls.
+// If you add a field here, add code to clear it in freedefer and deferProcStack
+// This struct must match the code in cmd/compile/internal/gc/reflect.go:deferstruct
+// and cmd/compile/internal/gc/ssa.go:(*state).call.
+// Some defers will be allocated on the stack and some on the heap.
+// All defers are logically part of the stack, so write barriers to
+// initialize them are not required. All defers must be manually scanned,
+// and for heap defers, marked.
+type _defer struct {
+    siz     int32 // includes both arguments and results
+    started bool //defer是否已经执行
+    heap    bool
+    // openDefer indicates that this _defer is for a frame with open-coded
+    // defers. We have only one defer record for the entire frame (which may
+    // currently have 0, 1, or more defers active).
+    openDefer bool
+    sp        uintptr  // sp at time of defer 调用者栈指针
+    pc        uintptr  // pc at time of defer 返回地址
+    fn        *funcval // can be nil for open-coded defers 要注册的funcval
+    _panic    *_panic  // panic that is running defer
+    link      *_defer //对应的defer链表
+
+    // If openDefer is true, the fields below record values about the stack
+    // frame and associated function that has the open-coded defer(s). sp
+    // above will be the sp for the frame, and pc will be address of the
+    // deferreturn call in the function.
+    fd   unsafe.Pointer // funcdata for the function associated with the frame
+    varp uintptr        // value of varp for the stack frame
+    // framepc is the current pc associated with the stack frame. Together,
+    // with sp above (which is the sp associated with the stack frame),
+    // framepc/sp can be used as pc/sp pair to continue a stack trace via
+    // gentraceback().
+    framepc uintptr
+}
+```
+
+在生命一个defer函数时，会调用下面这样一个函数
+
+```go
+func deferproc(siz int32, fn *funcval)
+```
+
+注册完成后go会在对中为defer函数开辟对应的\_derfer结构体空间，用来存储其对应的值，但是在go中会预先分配一个defer池，在注册defer函数时会优先从defer池中取出defer对象，没有空闲的或者大小合适的才会进行堆分配。
+
+上面介绍的是在1.12版本中defer的执行逻辑，该方式有两个问题
+
+* \_defer结构体是在堆上进行分配，而且还存在变量在栈与堆上的变换，比较复杂
+* \_defer是使用链表进行保存，操作起来不方便
+
+
 
 ## 推荐阅读
 

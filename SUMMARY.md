@@ -36,6 +36,7 @@
   * [匿名函数](go-yu-yan-ji-chu/han-shu/ni-ming-han-shu.md)
   * [闭包](go-yu-yan-ji-chu/han-shu/bi-bao.md)
   * [defer延迟调用](go-yu-yan-ji-chu/han-shu/defer.md)
+  * [defer与闭包](go-yu-yan-ji-chu/han-shu/defer-yu-bi-bao.md)
   * [init函数](go-yu-yan-ji-chu/han-shu/init-han-shu.md)
   * [递归函数](go-yu-yan-ji-chu/han-shu/di-gui-tiao-yong-fen-xi.md)
   * [函数调用栈分析](go-yu-yan-ji-chu/han-shu/han-shu-tiao-yong-zhan-fen-xi.md)
