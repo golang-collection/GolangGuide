@@ -118,15 +118,20 @@ init pack  5
 {% code title="sandbox.go" %}
 ```go
 package main
+
 import "fmt"
+
 var _ int64 = s()
+
 func init() {
    fmt.Println("init in sandbox.go")
 }
+
 func s() int64 {
    fmt.Println("calling s() in sandbox.go")
    return 1
 }
+
 func main() {
    fmt.Println("main")
 }
@@ -181,10 +186,13 @@ main
 
 ```go
 package main
+
 import "fmt"
+
 func init() {
    fmt.Println("init")
 }
+
 func main() {
    init()
 }
@@ -240,6 +248,4 @@ import _ "net/http/pprof"
 ```
 
 **golang对没有使用的导入包会编译报错，但是有时我们只想调用该包的init函数，不使用包导出的变量或者方法，这时就采用上面的导入方案。**
-
-
 

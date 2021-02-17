@@ -89,8 +89,6 @@ main : 11
 
 ### 3.2 引用传递内存分析
 
- 
-
 ![main&#x51FD;&#x6570;3](https://img-blog.csdnimg.cn/20200212131955928.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NfODQyNDk5NDY3,size_16,color_FFFFFF,t_70)
 
 与前面类似，也首先在栈去中开辟一块空间存储`main`函数的相关变量。  
