@@ -6,6 +6,8 @@
 
 在项目中，我们常用的操作就是释放资源等操作，为了即时的释放资源，go设计了`defer`机制。defer语句常用语资源释放，解除锁定以及错误处理等。
 
+在go官方博客是这样介绍defer的：Defer is commonly used to simplify functions that perform various clean-up actions.
+
 ## 2. defer机制的简单实用
 
 我们先通过一个案例来看一下`defer`机制的作用
