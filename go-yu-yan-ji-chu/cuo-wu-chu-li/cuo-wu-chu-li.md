@@ -147,7 +147,7 @@ os 包也提供了一套像 os.EINAL 这样的标准错误，它们基于 syscal
 ```go
 var (
 	EPERM		Error = Errno(syscall.EPERM)
-	ENOENT		Error = Errno(syscall.ENOENT)
+	ENOENT	Error = Errno(syscall.ENOENT)
 	ESRCH		Error = Errno(syscall.ESRCH)
 	EINTR		Error = Errno(syscall.EINTR)
 	EIO			Error = Errno(syscall.EIO)
