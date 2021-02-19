@@ -21,3 +21,9 @@
 * **对于异步的方式，推荐使用 Promise 模式处理错误**。对于这一点，JavaScript 中有很好的实践。
 * **对于分布式的系统，推荐使用 APM 相关的软件**。尤其是使用 Zipkin 这样的服务调用跟踪的分析来关联错误。
 
+## 推荐资源
+
+{% embed url="https://github.com/fanliao/go-promise" %}
+
+
+
