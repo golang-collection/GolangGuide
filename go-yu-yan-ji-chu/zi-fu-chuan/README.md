@@ -119,7 +119,7 @@ func main() {
 
 假设 s 是一个字符串（本质上是一个字节数组），那么就可以直接通过 `c := []byte(s)` 来获取一个字节的切片 c。另外，您还可以通过 copy 函数来达到相同的目的：`copy(dst []byte, src string)`。
 
-同样的，还可以使用 for-range 来获得每个元素（Listing 7.13—for\_string.go）：
+同样的，还可以使用 for-range 来获得每个元素：
 
 ```go
 package main
