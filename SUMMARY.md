@@ -56,7 +56,6 @@
 * [数组](go-yu-yan-ji-chu/shu-zu/README.md)
   * [指针数组与数组指针](go-yu-yan-ji-chu/shu-zu/zhi-zhen-shu-zu-yu-shu-zu-zhi-zhen.md)
   * [搜索及排序切片和数组](go-yu-yan-ji-chu/shu-zu/sou-suo-ji-pai-xu-qie-pian-he-shu-zu.md)
-  * [数组的底层实现](go-yu-yan-ji-chu/shu-zu/shu-zu-de-di-ceng-shi-xian.md)
 * [切片](go-yu-yan-ji-chu/qie-pian/README.md)
   * [切片与数组](go-yu-yan-ji-chu/qie-pian/qie-pian-yu-shu-zu.md)
   * [切片拼接与...的作用](go-yu-yan-ji-chu/qie-pian/qie-pian-pin-jie-yu-...three-dots-de-zuo-yong.md)
