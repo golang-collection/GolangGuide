@@ -2,7 +2,7 @@
 
 转载自：[https://github.com/unknwon/the-way-to-go\_ZH\_CN/blob/master/eBook/08.3.md](https://github.com/unknwon/the-way-to-go_ZH_CN/blob/master/eBook/08.3.md) by unknown
 
-可以使用 for 循环构造 map：
+可以使用 for 循环遍历 map：
 
 ```go
 for key, value := range map1 {
