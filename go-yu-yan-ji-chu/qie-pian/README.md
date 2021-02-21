@@ -1,6 +1,6 @@
 # 切片
 
-Go 数组的长度不可改变，在特定场景中这样的集合就不太适用，Go中提供了一种灵活，功能强悍的内置类型切片\("动态数组"\),与数组相比切片的长度是不固定的，可以追加元素，在追加时可能使切片的容量增大。
+Go数组的长度不可改变，在特定场景中这样的集合就不太适用，Go中提供了一种灵活，功能强悍的内置类型切片，与数组相比切片的长度是不固定的，可以追加元素，在追加时可能使切片的容量增大。
 
 ## 定义切片
 
@@ -51,19 +51,19 @@ s := arr[startIndex:endIndex]
 将arr中从下标startIndex到endIndex-1 下的元素创建为一个新的切片
 
 ```go
-s := arr[startIndex:] 
+s := arr[startIndex:]
 ```
 
 默认 endIndex 时将表示一直到arr的最后一个元素
 
 ```go
-s := arr[:endIndex] 
+s := arr[:endIndex]
 ```
 
 默认 startIndex 时将表示从arr的第一个元素开始
 
 ```go
-s1 := s[startIndex:endIndex] 
+s1 := s[startIndex:endIndex]
 ```
 
 通过切片s初始化切片s1
@@ -259,7 +259,7 @@ append 非常有用，它能够用于各种方面的操作：
 
 如果在创建切片时设置切片的容量和长度一样，就可以强制让新切片的第一个 append 操作 创建新的底层数组，与原有的底层数组分离。新切片与原有的底层数组分离后，可以安全地进行 后续修改
 
-![](../../.gitbook/assets/image%20%2828%29.png)
+![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnvfkg0jmvj30s80ic0v6.jpg)
 
 > 如何计算长度和容量
 >
@@ -285,7 +285,7 @@ slice = append(slice, "Kiwi")
 
 如果不加第三个索引，由于剩余的所有容量都属于 slice ，向 slice 追加 Kiwi 会改变 原有底层数组索引为 3 的元素的值 Banana 。不过在上面代码清单中我们限制了 slice 的容量为1。当我们第一次对 slice 调用 append 的时候，会创建一个新的底层数组，这个数组包括 2 个元素，并将水果 Plum 复制进来，再追加新水果 Kiwi ，并返回一个引用了这个底层数组的新切片，如下图所示。
 
-![](../../.gitbook/assets/image%20%2827%29.png)
+![](https://tva1.sinaimg.cn/large/008eGmZEgy1gnvflvgsx9j30sw0fotau.jpg)
 
 因为新的切片 slice 拥有了自己的底层数组，所以杜绝了可能发生的问题。我们可以继续向新切片里追加水果，而不用担心会不小心修改了其他切片里的水果。同时，也保持了为切片申请新的底层数组的简洁。
 

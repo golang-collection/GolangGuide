@@ -11,7 +11,7 @@ type stringStruct struct {
 
 其中str指向存储字符编码的底层数组（使用变长编码来表示要表示的字符）。且str与len各占8个字节。
 
-## 类型转换 
+## string与\[\]byte类型转换 
 
 > 转载自：[https://draveness.me/golang/docs/part2-foundation/ch03-datastructure/golang-string/](https://draveness.me/golang/docs/part2-foundation/ch03-datastructure/golang-string/)
 
@@ -67,6 +67,50 @@ func stringtoslicebyte(buf *tmpBuf, s string) []byte {
 * 当没有传入缓冲区时，运行时会调用 [`runtime.rawbyteslice`](https://draveness.me/golang/tree/runtime.rawbyteslice) 创建新的字节切片并将字符串中的内容拷贝过去；
 
 字符串和 `[]byte` 中的内容虽然一样，但是字符串的内容是只读的，我们不能通过下标或者其他形式改变其中的数据，而 `[]byte` 中的内容是可以读写的。不过无论从哪种类型转换到另一种都需要拷贝数据，而内存拷贝的性能损耗会随着字符串和 `[]byte` 长度的增长而增长。
+
+> 转载自：[https://www.cnblogs.com/qcrao-2018/p/10964692.html](https://www.cnblogs.com/qcrao-2018/p/10964692.html)
+
+完成这个任务，我们需要了解 slice 和 string 的底层数据结构：
+
+```go
+type StringHeader struct {
+	Data uintptr
+	Len  int
+}
+
+type SliceHeader struct {
+	Data uintptr
+	Len  int
+	Cap  int
+}
+```
+
+上面是反射包下的结构体，路径：src/reflect/value.go。只需要共享底层 \[\]byte 数组就可以实现 `zero-copy`。
+
+```go
+func string2bytes(s string) []byte {
+	stringHeader := (*reflect.StringHeader)(unsafe.Pointer(&s))
+
+	bh := reflect.SliceHeader{
+		Data: stringHeader.Data,
+		Len:  stringHeader.Len,
+		Cap:  stringHeader.Len,
+	}
+
+	return *(*[]byte)(unsafe.Pointer(&bh))
+}
+
+func bytes2string(b []byte) string{
+	sliceHeader := (*reflect.SliceHeader)(unsafe.Pointer(&b))
+
+	sh := reflect.StringHeader{
+		Data: sliceHeader.Data,
+		Len:  sliceHeader.Len,
+	}
+
+	return *(*string)(unsafe.Pointer(&sh))
+}
+```
 
 ## 推荐资源
 

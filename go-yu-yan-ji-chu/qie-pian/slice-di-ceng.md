@@ -40,5 +40,3 @@ printLenCap(nums2) // len: 4, cap: 6 [3 4 50 60]
 
 {% embed url="https://www.cnblogs.com/qcrao-2018/p/10631989.html" %}
 
-
-

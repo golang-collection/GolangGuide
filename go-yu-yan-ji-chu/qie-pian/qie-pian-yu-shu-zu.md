@@ -105,9 +105,9 @@ func growslice(et *_type, old slice, cap int) slice {
 
 #### 预估容量
 
-如果oldCap\*2 &lt; cap，那么newCap=cap
+如果 oldCap\*2 &lt; cap，那么 newCap=cap
 
-否则 oldLen&lt;1024那么cap=oldCap\*2，oldCap&gt;1024=oldCap\*1.25
+否则 oldLen&lt;1024 那么 cap=oldCap\*2，oldCap&gt;1024=oldCap\*1.25
 
 #### 所占内存
 
@@ -120,6 +120,15 @@ func growslice(et *_type, old slice, cap int) slice {
 例子：
 
 ![](../../.gitbook/assets/image%20%2843%29.png)
+
+注：这里新申请的string按照其底层实现占16字节
+
+```go
+type stringStruct struct {
+	str unsafe.Pointer
+	len int
+}
+```
 
 ## 参考资料
 
