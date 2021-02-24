@@ -169,12 +169,13 @@ type readOnly struct {
 
 对于上面的数据结构中字段解释如下
 
-* mu是互斥量也就是锁，用于保护read和dirty
+* mu是互斥量也就是锁，用于保护dirty
 * read是atomic.Value类型，可以并发的读取，在使用中必须要保证load和store的原子性，其实际存储的是上面代码段中的readOnly结构体。atomic.Value对应的定义如下
 
 ![](../../.gitbook/assets/image%20%2865%29.png)
 
 * dirty是一个非线程安全的原始map。包含新写入的key，并且包含read中的所有未被删除的key。这样可以快速的将dirty提升为read对外提供服务。
+* misses：计数作用。每次从read中读失败，则计数+1。
 
 在read和dirty中都包含entry，他是这样的一个结构体
 
@@ -208,6 +209,10 @@ type entry struct {
 * p==nil，表示该键值对已被删除且m.dirty==nil。
 * p==expunged，说明该键值对已经被删除，并且m.dirty!=nil，并且m.dirty中不含这个entity。
 * 其他情况，p指向一个正常的值，并且被记录在m.read.m\[key\]中，如果m.dirty也不为空，那么该entity也会被存储在m.dirty\[key\]中。实际上就是read和dirty会指向同一个值。
+
+对于sync的map操作是这样的，写会直接将内容写入dirty中，读取时会先从read中读，没有得到的话再从dirty中读取。
+
+![](../../.gitbook/assets/image%20%2866%29.png)
 
 
 
