@@ -2,7 +2,7 @@
 
 ## 什么是sync.map
 
-go原生的map不是线程安全的，如果对他进行并发操作需要加锁，而sync.map则是并发安全的map。
+go原生的map不是线程安全的，如果对他进行并发操作需要加锁，而sync.map则是并发安全的map。对于sync.map适合应用在大量读，少量写的场景下。
 
 ## 怎么用
 
@@ -213,6 +213,199 @@ type entry struct {
 对于sync的map操作是这样的，写会直接将内容写入dirty中，读取时会先从read中读，没有得到的话再从dirty中读取。
 
 ![](../../.gitbook/assets/image%20%2866%29.png)
+
+### Load读取
+
+```go
+func (m *Map) Load(key interface{}) (value interface{}, ok bool) {
+	read, _ := m.read.Load().(readOnly)
+	e, ok := read.m[key]
+	// 如果没在 read 中找到，并且 amended 为 true，即 dirty 中存在 read 中没有的 key
+	if !ok && read.amended {
+		m.mu.Lock() // dirty map 不是线程安全的，所以需要加上互斥锁
+		// double check。避免在上锁的过程中 dirty map 提升为 read map。
+		read, _ = m.read.Load().(readOnly)
+		e, ok = read.m[key]
+		// 仍然没有在 read 中找到这个 key，并且 amended 为 true
+		if !ok && read.amended {
+			e, ok = m.dirty[key] // 从 dirty 中找
+			// 不管 dirty 中有没有找到，都要"记一笔"，因为在 dirty 提升为 read 之前，都会进入这条路径
+			m.missLocked()
+		}
+		m.mu.Unlock()
+	}
+	if !ok { // 如果没找到，返回空，false
+		return nil, false
+	}
+	return e.load()
+}
+
+func (m *Map) missLocked() {
+    m.misses++
+    if m.misses < len(m.dirty) {
+        return
+    }
+    
+    // 将dirty置给read，因为穿透概率太大了(原子操作，耗时很小)
+    m.read.Store(readOnly{m: m.dirty})
+    m.dirty = nil
+    m.misses = 0
+}
+```
+
+算法流程如下：
+
+![](../../.gitbook/assets/image%20%2869%29.png)
+
+* 如何设置阀值？这里采用**miss计数和dirty长度**的比较，来进行阀值的设定。
+* 为什么dirty可以直接换到read？因为写操作只会操作dirty，所以保证了dirty是最新的，并且数据集是肯定包含read的。 （可能有同学疑问，dirty不是下一步就置为nil了，为何还包含？后文会有解释。）
+* 为什么dirty置为nil？我不确定这个原因。猜测：一方面是当read完全等于dirty的时候，读的话read没有就是没有了，即使穿透也是一样的结果，所以存的没啥用。另一方是当存的时候，如果元素比较多，影响插入效率。
+
+### 存储Store
+
+```go
+// 它是一个指向任意类型的指针，用来标记从 dirty map 中删除的 entry。
+var expunged = unsafe.Pointer(new(interface{}))
+
+// Store sets the value for a key.
+func (m *Map) Store(key, value interface{}) {
+	// 如果 read map 中存在该 key  则尝试直接更改(由于修改的是 entry 内部的 pointer，因此 dirty map 也可见)
+	read, _ := m.read.Load().(readOnly)
+	if e, ok := read.m[key]; ok && e.tryStore(&value) {
+		return
+	}
+
+	m.mu.Lock()
+	read, _ = m.read.Load().(readOnly)
+	if e, ok := read.m[key]; ok {
+		if e.unexpungeLocked() {
+			// 如果 read map 中存在该 key，但 p == expunged，则说明 m.dirty != nil 并且 m.dirty 中不存在该 key 值 此时:
+			//    a. 将 p 的状态由 expunged  更改为 nil
+			//    b. dirty map 插入 key
+			m.dirty[key] = e
+		}
+		// 更新 entry.p = value (read map 和 dirty map 指向同一个 entry)
+		e.storeLocked(&value)
+	} else if e, ok := m.dirty[key]; ok {
+		// 如果 read map 中不存在该 key，但 dirty map 中存在该 key，直接写入更新 entry(read map 中仍然没有这个 key)
+		e.storeLocked(&value)
+	} else {
+		// 如果 read map 和 dirty map 中都不存在该 key，则：
+		//	  a. 如果 dirty map 为空，则需要创建 dirty map，并从 read map 中拷贝未删除的元素到新创建的 dirty map
+		//    b. 更新 amended 字段，标识 dirty map 中存在 read map 中没有的 key
+		//    c. 将 kv 写入 dirty map 中，read 不变
+		if !read.amended {
+		    // 到这里就意味着，当前的 key 是第一次被加到 dirty map 中。
+			// store 之前先判断一下 dirty map 是否为空，如果为空，就把 read map 浅拷贝一次。
+			m.dirtyLocked()
+			m.read.Store(readOnly{m: read.m, amended: true})
+		}
+		// 写入新 key，在 dirty 中存储 value
+		m.dirty[key] = newEntry(value)
+	}
+	m.mu.Unlock()
+}
+
+// 如果 entry 没被删，tryStore 存储值到 entry 中。如果 p == expunged，即 entry 被删，那么返回 false。
+func (e *entry) tryStore(i *interface{}) bool {
+	for {
+		p := atomic.LoadPointer(&e.p)
+		if p == expunged {
+			return false
+		}
+		if atomic.CompareAndSwapPointer(&e.p, p, unsafe.Pointer(i)) {
+			return true
+		}
+	}
+}
+
+// unexpungeLocked 函数确保了 entry 没有被标记成已被清除。
+// 如果 entry 先前被清除过了，那么在 mutex 解锁之前，它一定要被加入到 dirty map 中
+func (e *entry) unexpungeLocked() (wasExpunged bool) {
+	return atomic.CompareAndSwapPointer(&e.p, expunged, nil)
+}
+```
+
+算法流程
+
+![](../../.gitbook/assets/image%20%2868%29.png)
+
+1. 如果在 read 里能够找到待存储的 key，并且对应的 entry 的 p 值不为 expunged，也就是没被删除时，直接更新对应的 entry 即可。
+2. 第一步没有成功：要么 read 中没有这个 key，要么 key 被标记为删除。则先加锁，再进行后续的操作。
+3. 再次在 read 中查找是否存在这个 key，也就是 double check 一下，这也是 lock-free 编程里的常见套路。如果 read 中存在该 key，但 `p == expunged`，说明 m.dirty != nil 并且 m.dirty 中不存在该 key 值 此时: a. 将 p 的状态由 expunged 更改为 nil；b. dirty map 插入 key。然后，直接更新对应的 value。
+4. 如果 read 中没有此 key，那就查看 dirty 中是否有此 key，如果有，则直接更新对应的 value，这时 read 中还是没有此 key。
+5. 最后一步，如果 read 和 dirty 中都不存在该 key，则：a. 如果 dirty 为空，则需要创建 dirty，并从 read 中拷贝未被删除的元素；b. 更新 amended 字段，标识 dirty map 中存在 read map 中没有的 key；c. 将 k-v 写入 dirty map 中，read.m 不变。最后，更新此 key 对应的 value。
+
+### 删除Delete
+
+```go
+// Delete deletes the value for a key.
+func (m *Map) Delete(key interface{}) {
+	read, _ := m.read.Load().(readOnly)
+	e, ok := read.m[key]
+	// 如果 read 中没有这个 key，且 dirty map 不为空
+	if !ok && read.amended {
+		m.mu.Lock()
+		read, _ = m.read.Load().(readOnly)
+		e, ok = read.m[key]
+		if !ok && read.amended {
+			delete(m.dirty, key) // 直接从 dirty 中删除这个 key
+		}
+		m.mu.Unlock()
+	}
+	if ok {
+		e.delete() // 如果在 read 中找到了这个 key，将 p 置为 nil
+	}
+}
+
+func (e *entry) delete() (hadValue bool) {
+	for {
+		p := atomic.LoadPointer(&e.p)
+		if p == nil || p == expunged {
+			return false
+		}
+		if atomic.CompareAndSwapPointer(&e.p, p, nil) {
+			return true
+		}
+	}
+}
+```
+
+算法流程
+
+![](../../.gitbook/assets/image%20%2867%29.png)
+
+可以看到，基本套路还是和 Load，Store 类似，都是先从 read 里查是否有这个 key，如果有则执行 `entry.delete` 方法，将 p 置为 nil，这样 read 和 dirty 都能看到这个变化。
+
+如果没在 read 中找到这个 key，并且 dirty 不为空，那么就要操作 dirty 了，操作之前，还是要先上锁。然后进行 double check，如果仍然没有在 read 里找到此 key，则从 dirty 中删掉这个 key。但不是真正地从 dirty 中删除，而是更新 entry 的状态。
+
+delete函数真正做的事情是将正常状态（指向一个 interface{}）的 p 设置成 nil。没有设置成 expunged 的原因是，当 p 为 expunged 时，表示它已经不在 dirty 中了。这是 p 的状态机决定的，在 `tryExpungeLocked` 函数中，会将 nil 原子地设置成 expunged。
+
+`tryExpungeLocked` 是在新创建 dirty 时调用的，会将已被删除的 entry.p 从 nil 改成 expunged，这个 entry 就不会写入 dirty 了。
+
+```go
+func (e *entry) tryExpungeLocked() (isExpunged bool) {
+	p := atomic.LoadPointer(&e.p)
+	for p == nil {
+		// 如果原来是 nil，说明原 key 已被删除，则将其转为 expunged。
+		if atomic.CompareAndSwapPointer(&e.p, nil, expunged) {
+			return true
+		}
+		p = atomic.LoadPointer(&e.p)
+	}
+	return p == expunged
+}
+```
+
+注意到如果 key 同时存在于 read 和 dirty 中时，删除只是做了一个标记，将 p 置为 nil；而如果仅在 dirty 中含有这个 key 时，会直接删除这个 key。原因在于，若两者都存在这个 key，仅做标记删除，可以在下次查找这个 key 时，命中 read，提升效率。若只有在 dirty 中存在时，read 起不到“缓存”的作用，直接删除。
+
+
+
+## 推荐阅读
+
+{% embed url="https://www.cnblogs.com/qcrao-2018/p/12833787.html" %}
+
+{% embed url="https://juejin.cn/post/6844903895227957262" %}
 
 
 
