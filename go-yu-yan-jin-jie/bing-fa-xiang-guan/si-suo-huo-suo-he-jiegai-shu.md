@@ -2,6 +2,8 @@
 
 转载自：[http://c.biancheng.net/view/4786.html](http://c.biancheng.net/view/4786.html)
 
+[https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-sync-primitives/](https://draveness.me/golang/docs/part3-runtime/ch06-concurrency/golang-sync-primitives/)
+
 ## 死锁
 
 死锁是指两个或两个以上的进程（或线程）在执行过程中，因争夺资源而造成的一种互相等待的现象，若无外力作用，它们都将无法推进下去。此时称系统处于死锁状态或系统产生了死锁，这些永远在互相等待的进程称为死锁进程。
