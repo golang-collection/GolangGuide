@@ -22,6 +22,7 @@
   * [byte](go-yu-yan-ji-chu/bian-liang/byte.md)
   * [rune](go-yu-yan-ji-chu/bian-liang/rune.md)
   * [变量的逃逸分析](go-yu-yan-ji-chu/bian-liang/tao-yi-fen-xi.md)
+  * [赋值语句中的表达式估值和赋值执行顺序](go-yu-yan-ji-chu/bian-liang/fu-zhi-yu-ju-zhong-de-biao-da-shi-gu-zhi-he-fu-zhi-zhi-hang-shun-xu.md)
 * [常量与枚举](go-yu-yan-ji-chu/chang-liang-yu-mei-ju.md)
 * [fmt包](go-yu-yan-ji-chu/fmt-bao/README.md)
   * [控制台输入](go-yu-yan-ji-chu/fmt-bao/kong-zhi-tai-shu-ru.md)
